@@ -89,23 +89,21 @@ function gatewayTable1Function() {
 	for (var i = 0; i < groups.length; i++) {
 		out += "<tr><td>" + groups[i].Gname + "</td>";
 		for (var j = 0; j < groups[i].gid.length; j++) {
-			/*
-			 * temp = "onmouseover=\"<span class=\"glyphicon glyphicon-remove\"
-			 * onclick=\"closefun(" + i + "," + j + ")\" id=\"close\"></span>";
-			 *//*
-				 * temp = "onmouseover=\"alert(\"hey\")\"";
-				 * onmouseover=\"toggle('hidden1')\"
-				 */
+		/*
+		 * temp = "onmouseover=\"<span class=\"glyphicon glyphicon-remove\"
+		 * onclick=\"closefun(" + i + "," + j + ")\" id=\"close\"></span>";
+		 *//*	temp = "onmouseover=\"alert(\"hey\")\"";
+		onmouseover=\"toggle('hidden1')\"
+*/
 			// alert(i+","+j+","+groups[i].gid[j].priority)
+			
 			out += "<td  onmouseover=\"alert(\"hey\")\" id=\"priorityId"
-					+ i
-					+ j
-					+ "\"  >"
-					+ groups[i].gid[j].priority 
-					+ "<span class=\"glyphicon glyphicon-edit\" title=\"Edit\"></span>"
-					+ "  "
-					+ "<br><span class=\"glyphicon glyphicon-remove\" onclick=\"closefun("
-					+ i + "," + j + ")\" id=\"close\"></span>" + "</td>";
+				+ i
+				+ j
+				+ "\"  >"
+				+ groups[i].gid[j].priority
+				+ "<span class=\"glyphicon glyphicon-remove\" onclick=\"closefun("
+				+ i + "," + j + ")\" id=\"close\"></span>" + "</td>";
 
 		}
 		out += "<td></td></tr>";
