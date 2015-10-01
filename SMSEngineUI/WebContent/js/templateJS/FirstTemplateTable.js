@@ -4,8 +4,8 @@ $(document).ready(function() {
 
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			fun1(xmlhttp.responseText);
-
+			populateFirstTemplateTable(xmlhttp.responseText);
+			populateSecondTemplateTable(xmlhttp.responseText);
 		}
 	}
 	xmlhttp.open("GET", url, true);
@@ -13,7 +13,7 @@ $(document).ready(function() {
 
 });
 
-function fun1(response) {
+function populateFirstTemplateTable(response) {
 	var arr = JSON.parse(response);
 	var out;
 
@@ -36,12 +36,6 @@ function fun1(response) {
 		"</strong></td></tr>";
 
 	}
-	/*
-	 * arrForSorting.sort(); for (var i = 0; i < arrForSorting.length; i++) {
-	 * 
-	 * out += "<tr>" + "<td><strong>" + arrForSorting[i].name "</strong></td></tr>";
-	 *  }
-	 */
 
 	out += "</tbody>" + "</table>";
 

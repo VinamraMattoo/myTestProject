@@ -1,62 +1,33 @@
+function populateSecondTemplateTable(response) {
 
-function addRow() {
-	var out = "<table id=\"SecTemplateTable\"" + "<thead><tr>" + "<th  >"
-			+ ".</th><th  >..</th><th  >...</th></tr></thead>"
-			+ "<tbody>";
-	for (var i = 0; i < types.length; i++)
-		for (var j = 0; j < types[i].tid.length; j++)
-			// for (var k = 0; k < types[i].tid[j].gid.length; k++)
+	var arr = JSON.parse(response);
+	var out;
 
-			out += "<tr>"
-					+ "<td> "
-					
-				
-					+ types[i].typename
-				
-					+ "</td><td> "
-				
-					+ types[i].tid[j].groupname
-					+ "</td><td> "
+	out += " <table id=\"firstTempTable\" data-height=\" 300\" data-search-time-out=\"1\""
+			+ "data-striped=\" true\""
+			+ "data-toggle=\"table\" data-search=\"true\" >"
+			+ "<caption style=\"border: inherit; background-color: lightgrey;\">"
+			+ "<span class=\"align-left\"><strong>Types</strong></span>"
+			+ "</caption>"
+			+ "<thead>"
+			+ "<tr>"
+			+ "<th data-sortable=\"true\">Type</th>"
+			+ "<th data-sortable=\"true\">Group</th>"
+			+ "<th data-sortable=\"true\">Values</th></tr></thead>" + "<tbody>";
 
-					+ j
-					+ i
-					+ "</td></tr>";
+	for (var i = 0; i < arr.length; i++) {
+		alert(arr[i].smsGroupVOs.length);
+		for (var j = 0; j < arr[i].smsGroupVOs.length; j++) {
+			alert(arr[i].smsGroupVOs[j]);
+			out += "<tr>" + "<td><strong>" + arr[i].name
+			"</strong></td>" + "<td><strong>" + arr[i].smsGroupVOs[j].name
+					+ "</strong></td>" + "<td><strong>"
+					+ arr[i].smsGroupVOs[j].cpContentMatchValue
+					+ "</strong></td>" + "</tr>";
 
+		}
+	}
 	out += "</tbody></table>"
 	$("#SecondTemplateTable").append(out);
 
 };
-
-function hideall() {
-	for (var i = 0; i < types.length; i++) {
-		$(types[i].typename).toggleClass("hidedata");
-	}
-};
-var SecondTableSelected = [];
-
-function myFunction2(typeno, groupno) {
-
-	var typGrp = String(typeno) + String(groupno);
-
-	for (var m = 0; m < FirstTableSelected.length; m++)
-		for (var n = 0; n < SecondTableSelected.length; n++) {
-			if (typGrp == SecondTableSelected[n]) {
-				// disp();
-				SecondTableSelected.splice(n, 1);
-				SecondTableSelected.sort();
-				displayAllTemplates();
-				return;
-			}
-		}
-	SecondTableSelected.push(typGrp);
-	// disp();
-	SecondTableSelected.sort();
-	displayAllTemplates();
-
-	function disp() {
-		for (var n = 0; n < SecondTableSelected.length; n++)
-			alert(n + "," + SecondTableSelected[n])
-
-	}
-};
-
