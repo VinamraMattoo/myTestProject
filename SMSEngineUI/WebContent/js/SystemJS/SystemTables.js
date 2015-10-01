@@ -7,6 +7,7 @@ $(document)
 					xmlhttp.onreadystatechange = function() {
 						if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 							myFunction1(xmlhttp.responseText);
+							myFunction2(xmlhttp.responseText);
 						}
 					}
 					xmlhttp.open("GET", url, true);
@@ -26,6 +27,22 @@ $(document)
 						out += "</table>";
 
 						$('#systemPanel').append(out);
+					}
+					function myFunction2(response) {
+						var arr = JSON.parse(response);
+						var i;
+						var out = "<div class=\"form-group\">";
+						for (i = 0; i < arr.length; i++) {
+							out += "<label for=\"name\">" + arr[i].name
+									+ "</label><br><br>"
+									+ "<input class=\"form-control\" "
+									+ "value=" + "\"" + arr[i].value + "\""
+									+ "type=" + arr[i].dataType
+									+ "step=\"any\"" + "id=\"name\" /><br><br>";
+
+						}
+						out += "</div><br>";
+						$('#update-grp-1').append(out);
 					}
 
 				});
