@@ -17,8 +17,8 @@ $(document)
 						var arr = JSON.parse(response);
 						var i;
 						var out = "<table class=\"table table-striped\" data-row-style=\"rowStyle\">";
-						out += "<thead><tr><td>" + "Name" + "</td><td>"
-								+ "Value" + "</td></tr></thead>";
+						out += "<thead><tr><td><strong>" + "Name" + "</strong></td><td><strong>"
+								+ "Value" + "</strong></td></tr></thead>";
 						for (i = 0; i < arr.length; i++) {
 							out += "<tr><td>" + "New SMS Load Window"
 									+ "</td><td>"

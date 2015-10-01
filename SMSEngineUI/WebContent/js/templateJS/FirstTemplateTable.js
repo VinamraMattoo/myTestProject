@@ -96,7 +96,7 @@ var FirstTableSelected = [];
 function fun1() {
 	var out;
 
-	out += " <table  data-height=\" 300\" data-search-time-out=\"1\""
+	out += " <table id=\"firstTempTable\" data-height=\" 300\" data-search-time-out=\"1\""
 			+ "data-select-item-name='checkbox' data-striped=\" true\""
 			+ "data-toggle=\"table\" data-search=\"true\" data-click-to-select=\"true\">"
 			+ "<caption style=\"border: inherit; background-color: lightgrey;\">"

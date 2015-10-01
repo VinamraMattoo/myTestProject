@@ -99,8 +99,8 @@
 						<li><button class="btn btn-link"
 								title=" update all system configurations at once from here "
 								style="padding-right: 70px; border-left-width: 1px; padding-left: 15px; text-decoration: none; color: #ffffff"
-								data-toggle="modal" data-target="#upsys">Update System
-								Configurations</button></li>
+								data-toggle="modal" data-target="#EditSystem">Update
+								System Configurations</button></li>
 
 					</ul></li>
 
@@ -205,41 +205,6 @@
 	</div>
 
 
-
-	<!-- pop up to show the chart -->
-	<div class="modal fade" id="system1" tabindex="-1" role="dialog"
-		data-backdrop="static" aria-labelledby="myModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel">System Config 1</h4>
-				</div>
-				<div class="modal-body">
-					<div class="form-group">
-						<input class="form-control" type="time" id="name"
-							placeholder="New SMS Load Window" />
-					</div>
-
-					<div class="form-group">
-						<label for="app_from">Next SMS batch load window</label> <input
-							class="form-control " type="time" id="app_from" />
-					</div>
-					<div class="form-group">
-						<label for="prodMaxCount">Correlation Id wait time </label> <input
-							class="form-control" type="time" step="any" id="prodMaxCount" />
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary pull-left "
-						data-dismiss="modal">Submit</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
 
 	<div class="modal fade" id="system2" tabindex="-1" role="dialog"
 		data-backdrop="static" aria-labelledby="myModalLabel"
@@ -376,7 +341,7 @@
 
 
 	<!-- code to update the system config -->
-	<div class="modal fade" id="upsys" tabindex="-1" role="dialog"
+	<div class="modal fade" id="EditSystem" tabindex="-1" role="dialog"
 		data-backdrop="static" aria-labelledby="myModalLabel"
 		aria-hidden="true">
 		<div class="modal-dialog">
@@ -384,13 +349,11 @@
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
 						aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel">
-						<h1>
-							<strong style="font-size: large; text-align: center;">Update
-								all system configurations</strong>
-						</h1>
-						<br>
-					</h4>
+					<h1 class="modal-title" id="myModalLabel">
+
+						<strong style="font-size: large; text-align: center;">Update
+							all system configurations</strong> <br>
+					</h1>
 				</div>
 				<div class="modal-body" style="height: 500px;">
 					<div class="panel panel-primary ">
@@ -398,96 +361,12 @@
 							<h1>
 								<strong id="click1"
 									title="click here to set sms load windows amd correlation id wait time"
-									class="mousechange" style="font-size: large;">Update
-									group1</strong>
+									class="mousechange" style="font-size: large;"></strong>
 							</h1>
 							<br>
 							<div id="update-grp-1"></div>
 						</div>
 					</div>
-					<hr>
-					<div class="panel panel-primary ">
-						<div class="panel-body">
-							<h1>
-								<strong id="click2" class="mousechange"
-									title="click here to set gateway failure count threshold , max sms length and retry same gateway"
-									style="font-size: large;">Update group2</strong>
-							</h1>
-							<br>
-							<div id="update-grp-2">
-								something can come here
-								<!-- 	<div class="form-group">
-									<label for="name"> Gateway failure count threshold</label> <input
-										class="form-control" type="number" min="0" id="name" />
-								</div>
-
-								<div class="form-group">
-									<label for="app_from">Max SMS length</label> <input
-										class="form-control " type="number" id="app_from" />
-								</div>
-
-								<div class="form-group">
-									<label><input type="checkbox" value="">&nbsp;&nbsp;<strong
-										style="font-size: 17px;">Retry same Gateway</strong></label>
-								</div> -->
-							</div>
-						</div>
-					</div>
-					<hr>
-					<div class="panel panel-primary ">
-						<div class="panel-body">
-							<h1>
-								<strong id="click3" class="mousechange"
-									title="click here to set sms status wait time,new sms loading  interval and  next sms batch loading"
-									style="font-size: large;">Update group3</strong>
-							</h1>
-							<br>×
-
-							<div id="update-grp-3">
-								<div class="form-group">
-									<label for="name">SMS status wait time</label> <input
-										class="form-control" type="text" id="name" />
-								</div>
-
-								<div class="form-group">
-									<label for="app_from">New SMS loading interval</label> <input
-										class="form-control " type="time" step="any" id="app_from" />
-								</div>
-
-								<div class="form-group">
-									<label for="prodMaxCount">Next SMS Batch loading
-										interval</label> <input class="form-control" type="time" step="any"
-										id="prodMaxCount" />
-								</div>
-							</div>
-						</div>
-					</div>
-					<hr>
-					<div class="panel panel-primary ">
-						<div class="panel-body">
-							<h1>
-								<strong class="mousechange"
-									title="click here to set status poll retry limit,gateway status checker task interval"
-									id="click4" style="font-size: large;">Update group4</strong>
-							</h1>
-							<br>
-							<div id="update-grp-4">
-								<div class="form-group">
-									<label for="name"> Status poll retry limit</label> <input
-										class="form-control" type="number" id="name" />
-								</div>
-
-								<div class="form-group">
-									<label for="app_from">Gateway status checker task
-										interval</label> <input class="form-control " type="time"
-										id="app_from" />
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary pull-left "
@@ -748,8 +627,6 @@ reformat when cleaning code -->
 	<script src="../js/gatewayJS/GatewayFirstTable.js"></script>
 	<script type="text/javascript"
 		src="../js/DOMmanipulation/ExternalDiv.js"></script>
-	<script src="../js/DOMmanipulation/hide.js"></script>
-
 	<script src="../js/templateJS/ThirdTemplateTable.js"></script>
 	<script src="../js/templateJS/SecondTemplateTable.js"></script>
 	<script src="../js/templateJS/FirstTemplateTable.js"></script>
