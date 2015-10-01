@@ -30,20 +30,7 @@ public class myFirstServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		StringBuilder builder = new StringBuilder();
-		/*
-		 * builder.append("[{" + "\"NewSMSLoadWindow\":\"00:10:20:500\"," +
-		 * "\"NextSMSbatchloadwindow\":\"00:11:20:500\"," +
-		 * "\"CorrelationIdwaittime\":\"00:00:20:500\"," +
-		 * "\"Gatewayfailurecountthreshold\":\"5\"," +
-		 * "\"MaxSMSlength\":\"100\"," + "\"RetrysameGateway\":\"true\"," +
-		 * "\"SMSstatuswaittime\":\"00:10:20:800\"," +
-		 * "\"NewSMSloadinginterval\":\"00:20:20:500\"," +
-		 * "\"NextSMSloadinginterval\":\"00:10:20:500\"," +
-		 * "\"NextSMSBatchloadinginterval\":\"00:15:20:500\"," +
-		 * "\"Statuspollretrylimit\":\"420\"," +
-		 * "\"Gatewaystatuscheckertaskinterval\":\"05:00:20:000\"" + "}]");
-		 * 
-		 */
+	
 
 		builder.append(" [{" + "\"id\": 1," + " \"paramid\": 1," + " \"tid\":1," + "\"name\": \"NEW_SMS_LOAD_WINDOW\","
 				+ " \"description\": \"parameter value object\"," + " \"dataType\": \"NUMBER\"," + " \"active\": false,"
