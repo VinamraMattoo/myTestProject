@@ -8,18 +8,19 @@ function populateThirdTemplateTable(response) {
 			+ "data-toggle=\"table\" data-search=\"true\" >"
 			+ "<caption style=\"border: inherit; background-color: lightgrey;\">"
 			+ "<span class=\"align-left\"><strong>Types</strong></span>"
-			+ "</caption>"
-			+ "<thead>"
-			+ "<tr>"
+			+ "</caption>" + "<thead>" + "<tr>"
 			+ "<th data-sortable=\"true\">Type</th>"
 			+ "<th data-sortable=\"true\">Group</th>"
 			+ "<th data-sortable=\"true\">Template</th>"
-			+ "<th data-sortable=\"true\">Values</th></tr></thead>" + "<tbody>";
+			+ "<th data-sortable=\"true\">Values</th>"
+			+ "<th data-field=\"operate\" data-formatter=\"operateFormatter\""
+			+ "data-events=\"operateEvents\">Options</th></tr></thead>"
+			+ "<tbody>";
 
 	for (var i = 0; i < arr.length; i++) {
-		for (var j = 0; j < arr[i].smsGroupVOs.length; j++){
+		for (var j = 0; j < arr[i].smsGroupVOs.length; j++) {
 			for (var k = 0; k < arr[i].smsGroupVOs[j].smsTemplateVOs.length; k++) {
-				alert( arr[i].smsGroupVOs[j].smsTemplateVOs[k].retryCount);
+
 				out += "<tr>" + "<td><strong>" + arr[i].name + "</strong></td>"
 						+ "<td><strong>" + arr[i].smsGroupVOs[j].name
 						+ "</strong></td>" + "<td><strong>"
@@ -31,5 +32,5 @@ function populateThirdTemplateTable(response) {
 		}
 	}
 	out += "</tbody></table>"
-	$("#TemplateThirdTable").append(out);
+	$("#TemplateThirdTable1").append(out);
 };
