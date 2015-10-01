@@ -16,9 +16,7 @@ var t1g2temp2 = [ {
 	messageExpiryTime : 65
 } ];
 
-/*
- * var t1g1 = [ { templateName : t1g1temp1 }, { templateName : t1g1temp2 } ];
- */
+
 var t1g2 = [ {
 	templateName : "Template121",
 	tempId : t1g2temp1
@@ -91,27 +89,24 @@ var types = [ {
 	tid : Marketing
 } ];
 
-// types[FirstTableSelected[i]].tid[SecondTableSelected[j]].gid[k].templateName
 var FirstTableSelected = [];
 function fun1() {
 	var out;
 
 	out += " <table id=\"firstTempTable\" data-height=\" 300\" data-search-time-out=\"1\""
-			+ "data-select-item-name='checkbox' data-striped=\" true\""
-			+ "data-toggle=\"table\" data-search=\"true\" data-click-to-select=\"true\">"
+			+ "data-striped=\" true\""
+			+ "data-toggle=\"table\" data-search=\"true\" >"
 			+ "<caption style=\"border: inherit; background-color: lightgrey;\">"
 			+ "<span class=\"align-left\"><strong>Types</strong></span>"
-			+ "</caption>" + "<thead>" + "<tr>" + "<th></th>"
+			+ "</caption>" + "<thead>" + "<tr>"
 			+ "<th data-sortable=\"true\">Types</th>"
 			+ "<th data-field=\"operate\" data-formatter=\"operateFormatter\""
 			+ "data-events=\"operateEvents\">Options</th></tr></thead>"
 			+ "<tbody>";
 	for (var i = 0; i < types.length; i++) {
-		out += "<tr>" + "<td><input id=\"check" + i
-				+ "\" data-index=\"0\" onclick=\"myFunction("
+		out += "<tr>" + "<td><strong>"
 				+ types[i].typename
-				+ ")\" name=\"checkbox\" type=\"checkbox\" checked></td><td>"
-				+ types[i].typename + "</td>" + "</td></tr>";
+				"</strong></td></tr>";
 		FirstTableSelected.push(types[i].typename);
 
 	}
@@ -129,7 +124,6 @@ function myFunction(typeName) {
 	}
 };
 function disp(typename) {
-	// alert(typename);
 	$(typename).toggleClass("hidedata");
 };
 
