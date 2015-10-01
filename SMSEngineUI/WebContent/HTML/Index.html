@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SMS Management</title>
+<!-- table demo stuff -->
+
+
+<link rel="stylesheet"
+	href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.css">
+
+
+<link rel="shortcut icon" type="image/png" href="../images/newlogo.png" />
+
+
+
+
+<!-- ends here -->
+
+
+
+<link rel="stylesheet"
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+<link href="../css/sb-admin.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../css/style.css"
+	media="all" />
+<link href="../css/animate.css" rel="stylesheet">
+
+<style type="text/css">
+#updateAllSystem {
+	max-width: 600px;
+}
+
+.modal-dialog {
+	overflow-y: initial;
+}
+
+.modal-body {
+	height: 250px;
+	overflow-y: auto;
+}
+</style>
+
+
+
+</head>
+<body>
+
+	<nav class="navbar navbar-fixed-top" role="navigation"
+		style="background-color: #3fc1be">
+		<div class="navbar-header">
+			<noscript>
+				<div id="noscript"
+					style="position: absolute; top: 0; left: 0; background-color: red; font-size: 200%; z-index: 999; height: 100%; width: 100%; text-align: center; padding-top: 50px;">
+					You must enable Javascript in order to use this site.</div>
+			</noscript>
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-ex1-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+
+			<img src="../images/portea.png" width="200"
+				style="padding-top: 10px; margin-left: 10px;">
+
+		</div>
+
+
+
+		<div class="nav navbar-right top-nav">
+
+			<button class="navbar navbar-left btn btn-primary btn-lg"
+				title="pie chat showing sms stats" onclick="drawVisualization()"
+				data-toggle="modal" data-target="#myModal"
+				style="margin-top: 10px; right: 100px">
+				SMS Stats<span class="glyphicon glyphicon-stats"></span>
+			</button>
+
+
+
+			<button type="button" class="navbar navbar-left btn btn-danger"
+				title="log out from current account"
+				style="text-align: center; margin-top: 10px; right: 50px">
+				Logout&nbsp;&nbsp;<span class="glyphicon glyphicon-adjust"></span>
+			</button>
+
+		</div>
+
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul class="nav navbar-nav side-nav"
+				style="background-color: #3fc1be; top: 81px">
+				<li><a href="javascript:;" data-toggle="collapse"
+					id="SysConfig" data-target="#demo"> <strong
+						style="color: #ffffff">System Configurations <i
+							class="glyphicon glyphicon-cog gly-spin"></i></strong></a>
+					<ul id="demo" class="collapse">
+						<li><button class="btn btn-link"
+								title=" update all system configurations at once from here "
+								style="padding-right: 70px; border-left-width: 1px; padding-left: 15px; text-decoration: none; color: #ffffff"
+								data-toggle="modal" data-target="#upsys">Update System
+								Configurations</button></li>
+
+					</ul></li>
+
+
+				<li><a href="javascript:;" data-toggle="collapse"
+					title=" check the  gateway configurations from here "
+					id="GatewayConfig" data-target="#demo1"> <strong
+						style="color: #ffffff">Gateway Configurations <i
+							class="glyphicon glyphicon-cog gly-spin"></i></strong></a>
+					<ul id="demo1" class="collapse">
+						<li><button class="btn btn-link" data-toggle="modal"
+								data-target="#GatewayMatching"
+								style="padding-right: 70px; border-left-width: 1px; padding-left: 15px; text-decoration: none; color: #ffffff">
+
+								Update Gateway Configurations</button></li>
+
+					</ul></li>
+
+				<li><a href="javascript:;" data-toggle="collapse"
+					id="TemplateConfig" data-target="#demo2"
+					title=" update the  template  configurations from here "><strong
+						style="color: #ffffff"> Template Configurations <i
+							class="glyphicon glyphicon-cog gly-spin"></i></strong></a></li>
+
+			</ul>
+		</div>
+	</nav>
+	<div id="page-wrapper">
+		<br /> <br /> <br /> <br /> <br /> <br />
+
+		<div class="row">
+
+			<!-- code to update gateway config -->
+
+			<div id="updateGateway" style="display: none;"
+				class="col-md-8 col-md-offset-2">
+				<h1 class="text-center">
+					<strong> Update gateway data </strong>
+				</h1>
+				<br /> <br /> <br />
+				<div class="row">
+					<div class="col-md-4 col-md-offset-1">
+
+
+						<br> <br>
+						<div class="form-group">
+							<label for="name" title=" enter the  end  point for submission">URL
+								End-point for submission</label> <input class="form-control" type="url"
+								id="name" />
+						</div>
+
+						<div class="form-group">
+							<label for="inputTwitter"
+								title=" restricted chars for this gateway">Restricted
+								chars this gateway</label> <input type="text" pattern="^[A-z0-9]$"
+								maxlength="15" class="form-control" id="inputTwitter" required>
+						</div>
+					</div>
+					<div class="col-md-4 col-md-offset-1">
+						<div class="form-group">
+							<label for="app_till" title="inactivity period  start">Inactivity
+								period start</label> <input class="form-control " type="time"
+								id="app_till" />
+						</div>
+						<div class="form-group">
+							<label for="app_till">Inactivity period end</label> <input
+								class="form-control " type="time" id="app_till" />
+						</div>
+
+						<div class="form-group">
+							<label for="prodMaxCount">URL End-point for polling</label> <input
+								class="form-control" type="url" id="prodMaxCount" />
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- present system config data  -->
+
+
+			<div id="systemConfig" style="display: none;"
+				class="col-md-10 col-md-offset-1"></div>
+
+
+			<!-- present gateway config data -->
+
+			<div id="gatewayConfig"
+				style="display: none; width: 850px; height: 1000px"
+				class="col-md-6 col-md-offset-3"></div>
+
+
+			<!-- present template configurations -->
+			<div id="templateConfig"
+				style="display: none; width: 930px; margin-left: 330px;"
+				class="col-md-6 col-md-offset-3"></div>
+
+		</div>
+
+
+	</div>
+
+
+
+	<!-- pop up to show the chart -->
+	<div class="modal fade" id="system1" tabindex="-1" role="dialog"
+		data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">System Config 1</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<input class="form-control" type="time" id="name"
+							placeholder="New SMS Load Window" />
+					</div>
+
+					<div class="form-group">
+						<label for="app_from">Next SMS batch load window</label> <input
+							class="form-control " type="time" id="app_from" />
+					</div>
+					<div class="form-group">
+						<label for="prodMaxCount">Correlation Id wait time </label> <input
+							class="form-control" type="time" step="any" id="prodMaxCount" />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-left "
+						data-dismiss="modal">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="system2" tabindex="-1" role="dialog"
+		data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">System Config2</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<!-- <label for="name"> Gateway failure count threshold</label> -->
+						<input class="form-control" type="number" min="0" id="name"
+							placeholder="Gateway failure count threshold" />
+					</div>
+
+					<div class="form-group">
+						<label for="app_from">Max SMS length</label> <input
+							class="form-control " type="number" id="app_from" />
+					</div>
+
+					<div class="form-group">
+						<label><input type="checkbox" value="">&nbsp;&nbsp;Retry
+							same Gateway</label>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-left "
+						data-dismiss="modal">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="system3" tabindex="-1" role="dialog"
+		data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">System Config 3</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="name">SMS status wait time</label> <input
+							class="form-control" type="text" id="name" />
+					</div>
+
+					<div class="form-group">
+						<label for="app_from">New SMS loading interval</label> <input
+							class="form-control " type="time" step="any" id="app_from" />
+					</div>
+					<!-- here -->
+					<div class="form-group">
+						<label for="prodMaxCount">Next SMS Batch loading interval</label>
+						<input class="form-control" type="time" step="any"
+							id="prodMaxCount" />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-left "
+						data-dismiss="modal">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="system4" tabindex="-1" role="dialog"
+		data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div style="background-color: #3fc1be" class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Pop Up</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="name"> Status poll retry limit</label> <input
+							class="form-control" type="number" id="name" />
+					</div>
+
+					<div class="form-group">
+						<label for="app_from">Gateway status checker task interval</label>
+						<input class="form-control " type="time" id="app_from" />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-left "
+						data-dismiss="modal">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- update template popup -->
+	<div class="modal fade" id="UpdateTemplate" tabindex="-1" role="dialog"
+		data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Pop Up</h4>
+				</div>
+				<div class="modal-body">
+
+					<div class="form-group">
+						<label for="name">Retry count</label> <input class="form-control"
+							type="number" id="name" />
+					</div>
+					<div class="form-group">
+						<label for="app_till">Message expiry time</label> <input
+							class="form-control " type="text" id="app_till" />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-left "
+						data-dismiss="modal">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- code to update the system config -->
+	<div class="modal fade" id="upsys" tabindex="-1" role="dialog"
+		data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content" style="height: 650px;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">
+						<h1>
+							<strong style="font-size: large; text-align: center;">Update
+								all system configurations</strong>
+						</h1>
+						<br>
+					</h4>
+				</div>
+				<div class="modal-body" style="height: 500px;">
+					<div class="panel panel-primary ">
+						<div class="panel-body" id="sampl">
+							<h1>
+								<strong id="click1"
+									title="click here to set sms load windows amd correlation id wait time"
+									class="mousechange" style="font-size: large;">Update
+									group1</strong>
+							</h1>
+							<br>
+							<div id="update-grp-1"></div>
+						</div>
+					</div>
+					<hr>
+					<div class="panel panel-primary ">
+						<div class="panel-body">
+							<h1>
+								<strong id="click2" class="mousechange"
+									title="click here to set gateway failure count threshold , max sms length and retry same gateway"
+									style="font-size: large;">Update group2</strong>
+							</h1>
+							<br>
+							<div id="update-grp-2">
+								something can come here
+								<!-- 	<div class="form-group">
+									<label for="name"> Gateway failure count threshold</label> <input
+										class="form-control" type="number" min="0" id="name" />
+								</div>
+
+								<div class="form-group">
+									<label for="app_from">Max SMS length</label> <input
+										class="form-control " type="number" id="app_from" />
+								</div>
+
+								<div class="form-group">
+									<label><input type="checkbox" value="">&nbsp;&nbsp;<strong
+										style="font-size: 17px;">Retry same Gateway</strong></label>
+								</div> -->
+							</div>
+						</div>
+					</div>
+					<hr>
+					<div class="panel panel-primary ">
+						<div class="panel-body">
+							<h1>
+								<strong id="click3" class="mousechange"
+									title="click here to set sms status wait time,new sms loading  interval and  next sms batch loading"
+									style="font-size: large;">Update group3</strong>
+							</h1>
+							<br>×
+
+							<div id="update-grp-3">
+								<div class="form-group">
+									<label for="name">SMS status wait time</label> <input
+										class="form-control" type="text" id="name" />
+								</div>
+
+								<div class="form-group">
+									<label for="app_from">New SMS loading interval</label> <input
+										class="form-control " type="time" step="any" id="app_from" />
+								</div>
+
+								<div class="form-group">
+									<label for="prodMaxCount">Next SMS Batch loading
+										interval</label> <input class="form-control" type="time" step="any"
+										id="prodMaxCount" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<hr>
+					<div class="panel panel-primary ">
+						<div class="panel-body">
+							<h1>
+								<strong class="mousechange"
+									title="click here to set status poll retry limit,gateway status checker task interval"
+									id="click4" style="font-size: large;">Update group4</strong>
+							</h1>
+							<br>
+							<div id="update-grp-4">
+								<div class="form-group">
+									<label for="name"> Status poll retry limit</label> <input
+										class="form-control" type="number" id="name" />
+								</div>
+
+								<div class="form-group">
+									<label for="app_from">Gateway status checker task
+										interval</label> <input class="form-control " type="time"
+										id="app_from" />
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-left "
+						data-dismiss="modal">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- loading -->
+	<div class="container" style="text-align: center;">
+		<!-- Modal -->
+		<div class="modal fade" id="Loading" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div style="background-color: #3fc1be; height: 600px;"
+					class="modal-content">
+					<div class="modal-header" style="display: none">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Modal Header</h4>
+					</div>
+					<div class="modal-body" style="height: 500px;" id="CancelLoading">
+
+						<img src="../images/portea.png" width="200"> <br> <br>
+						<br> <br> <br> <br> <i
+							style="font-size: 200px"
+							class="glyphicon glyphicon-refresh gly-spin  fa-10x"></i> <br>
+						<br> <br> <br> <br> Loading.........
+						<h1></h1>
+						<br> <br>
+
+						<div id="cancelPopUp">
+							<h1>Connection seems to taking too long press cancel to
+								abort</h1>
+							<br>
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+
+						</div>
+
+
+
+					</div>
+					<div class="modal-footer" style="display: none"></div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- here starts the  gateway matching model -->
+	<!-- Modal -->
+	<div class="modal fade" id="GatewayMatching" role="dialog"
+		data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+
+
+
+			<!-- Modal content-->
+			<div style="background-color: #3fc1be; width: 700px; height: 600px;"
+				class="modal-content col-md-12 col-lg-12 col-sm-12">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<center>
+						<img src="../images/portea.png" width="200">
+					</center>
+				</div>
+
+
+				<div class="modal-body" style="height: 500px;" id="CancelLoading">
+					<div class="col-md-3" id="gatewayFirstTable">
+						<h2 style="text-align: center; font-size: 30px;">Groups</h2>
+						<br> <br>
+					</div>
+
+					<div class="col-md-3 col-md-offset-5">
+						<center>
+							<h1 style="font-size: 300%">Gateways</h1>
+						</center>
+						<table style="background-color: white" data-toggle="table">
+							<thead>
+								<tr>
+									<th>Gateways</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>gateway 1</td>
+									<td><input type="checkbox" class="radio"
+										onclick=gatewaySelection(1) name="gateway"></td>
+								</tr>
+								<tr>
+									<td>gateway 2</td>
+									<td><input type="checkbox" class="radio"
+										onclick=gatewaySelection(2) name="gateway"></td>
+								</tr>
+								<tr>
+									<td>gateway 3</td>
+									<td><input type="checkbox" class="radio"
+										onclick=gatewaySelection(3) name="gateway"></td>
+								</tr>
+								<tr>
+									<td>gateway 4</td>
+									<td><input type="checkbox" class="radio"
+										onclick=gatewaySelection(4) name="gateway"></td>
+								</tr>
+
+
+							</tbody>
+						</table>
+					</div>
+					<br> <br>
+					<div class="col-md-offset-4">
+						<input type=text id="priority" name="priority"
+							placeholder="type priority">
+						<button class="btn btn-primary"
+							onclick="mapGroupToGateway(document.getElementById('priority').value)">
+							<!-- onclick="alert('linking the data')"> -->
+
+							Link
+						</button>
+
+					</div>
+					<hr size="300">
+
+					<center>
+						<h1 style="font-size: 200%">Gateway mappings</h1>
+					</center>
+					<table data-toggle="table" style="background-color: white">
+						<thead>
+							<tr>
+								<th data-field="state" data-checkbox="true"></th>
+								<th>Groups</th>
+								<th>gateway 1</th>
+								<th>gateway 2</th>
+								<th>gateway 3</th>
+								<th>gateway 4</th>
+								<th data-field="operate" data-formatter="operateFormatter2"
+									data-events="operateEvents2">Options</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td></td>
+								<td>group 1</td>
+								<td>1</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+							</tr>
+
+
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+			<div class="modal-footer" style="display: none"></div>
+		</div>
+
+	</div>
+	<!-- here goes the  delete  button 
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+-------------------------------------------------------------------------
+reformat when cleaning code -->
+
+
+	<!-- ends here-------------
+	-
+-----------------------------
+-
+-------------------------- -->
+
+
+
+
+
+
+	<!-- here  it stops -->
+	<!--  footer starts  here -->
+	<!-- <footer class="web-footer">
+		<div class="container">
+						<div class="bottom-footer">
+				<div class="col-md-5">Copyright © 2015 Portea Medical</div>
+				<div class="col-md-7">
+					<ui class="footer-nav col-md-12">
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Terms and Conditions</a></li>
+					<li><a href="#">Cancellation Policy</a></li>
+					</ui>
+				</div>
+			</div>
+				<ui class="end-footer col-md-12">
+				<li><a href="#">Bangalore</a></li>
+				<li><a href="#"> Delhi</a></li>
+				<li><a href="#"> NCR</a></li>
+				<li><a href="#"> Mumbai</a></li>
+				<li><a href="#"> Chennai</a></li>
+				<li><a href="#"> Pune</a></li>
+				<li><a href="#"> Hyderabad</a></li>
+				<li><a href="#"> Kolkata </a></li>
+				<li><a href="#"> Lucknow</a></li>
+				<li><a href="#"> Coimbatore</a></li>
+				<li><a href="#"> Ahmedabad</a></li>
+				<li><a href="#"> Gurgaon</a></li>
+				<li><a href="#"> Faridabad</a></li>
+				<li><a href="#"> Ghaziabad</a></li>
+				<li><a href="#">Visakhapatnam</a></li>
+				<li><a href="#">Goa</a></li>
+				<li><a href="#">Madurai</a></li>
+				<li><a href="#">Chandigarh</a></li>
+				<li><a href="#">Jaipur</a></li>
+				<li><a href="#">Mysore</a></li>
+				<li><a href="#">Malaysia</a></li>
+				</ui>
+		
+		</div>
+	</footer> -->
+	<!-- footer ends here -->
+	<div id="bodyId" class="container"></div>
+
+
+	<script>
+		function operateFormatter2(value, row, index) {
+			return [ '<center><button class="btn btn-sm btn-success title delete">Delete</button></center>' ]
+					.join('');
+		}
+
+		window.operateEvents2 = {
+
+			'click .edit' : function(e, value, row, index) {
+				alert('You click delete icon, row: ' + JSON.stringify(row));
+				console.log(value, row, index);
+			},
+
+		};
+	</script>
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script
+		src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.js"></script>
+	<script
+		src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/locale/bootstrap-table-en-US.min.js"></script>
+
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+	<script
+		src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript"
+		src="../js/DOMmanipulation/DivNavigation.js"></script>
+	<script type="text/javascript" src="../js/analysis/Chart.js"></script>
+
+	<script src="../js/gatewayJS/GatewayFirstTable.js"></script>
+	<script type="text/javascript"
+		src="../js/DOMmanipulation/ExternalDiv.js"></script>
+	<script src="../js/DOMmanipulation/hide.js"></script>
+
+	<script src="../js/templateJS/ThirdTemplateTable.js"></script>
+	<script src="../js/templateJS/SecondTemplateTable.js"></script>
+	<script src="../js/templateJS/FirstTemplateTable.js"></script>
+	<script src="../js/SystemJS/SystemTables.js"></script>
+	<script src="../js/gatewayJS/GatewayEditTable1.js"></script>
+	<script src="../js/gatewayJS/GatewayTables.js"></script>
+	<script src="../js/SystemJS/UpdateAllSystem.js"></script>
+
+
+
+</body>
+</html>

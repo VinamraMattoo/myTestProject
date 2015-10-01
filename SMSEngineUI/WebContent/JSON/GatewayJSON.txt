@@ -1,0 +1,10 @@
+[{"gid": [{"gatewayName":"gate1","priority":"3"},
+			{"gatewayName":"gate2","priority":"2"},
+				{"gatewayName":"gate3","priority":"1"}], "Gname":"group1"},
+				{"gid":[{"gatewayName":"gate1","priority":"3"},
+			{"gatewayName":"gate2","priority":"2"},
+				{"gatewayName":"gate3","priority":"1"}], "Gname":"group2"},
+				  {"gid":[{"gatewayName":"gate1","priority":"3"},
+			{"gatewayName":"gate2","priority":"2"},
+				{"gatewayName":"gate3","priority":"1"}], "Gname":"group3"}]
+			

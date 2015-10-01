@@ -1,0 +1,49 @@
+<html>
+  <head>
+  
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://fancybox.net/js/fancybox-1.3.4/jquery.fancybox-1.3.4.js"></script>
+      <link rel="stylesheet" href="http://fancybox.net/js/fancybox-1.3.4/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+     
+    
+    <script type="text/javascript">
+      google.load("visualization", "1.1", {packages:["bar"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses', 'Profit'],
+          ['2014', 1000, 400, 200],
+          ['2015', 1170, 460, 250],
+          ['2016', 660, 1120, 300],
+          ['2017', 1030, 540, 350]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Company Performance',
+            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('data')).draw(data);
+
+   
+      }
+      
+      $(document).ready(function() {
+          $("a#inline").fancybox({
+            'hideOnContentClick': true,
+             onComplete: drawChart()
+          });
+        });
+    </script>
+  </head>
+  <body>
+   
+    <a id="inline" href="#data">Click here to see chart</a>
+      <div style="display:none"><div style='height:800px;width:800px' id="data"></div></div>
+  </body>
+</html>
+ 

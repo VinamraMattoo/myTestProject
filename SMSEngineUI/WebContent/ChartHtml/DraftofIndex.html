@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SMS Management</title>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<link rel="stylesheet"
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+<script
+	src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"
+		style="background-color: #F8F8FF">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-ex1-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<img src="../images/newlogo.png" height="75" width="75">
+
+		</div>
+
+
+
+		<div class="nav navbar-right top-nav">
+
+			<button class="navbar navbar-left btn btn-primary btn-lg"
+				onclick="drawVisualization()" data-toggle="modal"
+				data-target="#myModal">
+				SMS Stats<span class="glyphicon glyphicon-stats"></span>
+			</button>
+
+
+			<button class="navbar navbar-left btn btn-primary btn-lg"
+				onclick="drawVisualization()" data-toggle="modal"
+				data-target="#myModal">
+				SMS Trends<span class="glyphicon glyphicon-stats"></span>
+			</button>
+
+
+			<button type="button" class="navbar navbar-left btn btn-warning"
+				style="text-align: center;">
+				Logout&nbsp;&nbsp;<span class="glyphicon glyphicon-log-out"></span>
+			</button>
+
+			 <div class="modal fade" style="display: none;" id="myModal"
+				tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">Pop Up</h4>
+						</div>
+						<div class="modal-body">
+							<div id="chart_div" style="width: 900px; height: 500px;"></div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div> 
+
+		</div>
+		<br /> <br />
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul class="nav navbar-nav side-nav"
+				style="background-color: #663300;">
+				<li><a href="javascript:;" data-toggle="collapse"
+					data-target="#demo"> System Configurations</a>
+					<ul id="demo" class="collapse">
+						<li><a href="">Update Retries </a></li>
+						<li><a href="">Update Batch Size </a></li>
+						<li><a href="">Update Email-ID</a></li>
+					</ul></li>
+				
+				
+				<li><a href="javascript:;" data-toggle="collapse"
+					data-target="#demo1"> Gateway Configurations</a>
+					<ul id="demo1" class="collapse">
+						<li><a href="">Update Restricted char </a></li>
+						<li><a href="#">Update Endpoint Name </a></li>
+					</ul></li>
+
+				<li><a href="javascript:;" data-toggle="collapse"
+					data-target="#demo2"> Template Configurations</a>
+					<ul id="demo2" class="collapse">
+						<li><a href="">Update Retries</a></li>
+						<li><a href="">Another </a></li>
+					</ul></li>
+
+			</ul>
+		</div>
+	</nav>
+
+
+
+
+
+	<script type="text/javascript">
+		google.load('visualization', '1', {
+			packages : [ 'piechart' ]
+		});
+		google.setOnLoadCallback(drawVisualization);
+
+		function drawVisualization() {
+			var data = new google.visualization.DataTable();
+			data.addColumn('string', 'Task');
+			data.addColumn('number', 'Hours per Day');
+			data.addRows(5);
+			data.setValue(0, 0, 'Work');
+			data.setValue(0, 1, 11);
+			data.setValue(1, 0, 'Eat');
+			data.setValue(1, 1, 2);
+			data.setValue(2, 0, 'Commute');
+			data.setValue(2, 1, 2);
+			data.setValue(3, 0, 'Watch TV');
+			data.setValue(3, 1, 2);
+			data.setValue(4, 0, 'Sleep');
+			data.setValue(4, 1, 7);
+			var options = {
+				title : 'Trends data',
+				'width' : 450,
+				'height' : 350
+			};
+			// Create and draw the visualization.
+			new google.visualization.PieChart(document
+					.getElementById('chart_div')).draw(data, options);
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+[
+{
+"NewSMSLoadWindow":"00:10:20:500",
+"NextSMSbatchloadwindow":"00:11:20:500",
+"CorrelationIdwaittime":"00:00:20:500",
+"Gatewayfailurecountthreshold":"5",
+"MaxSMSlength":"100",
+"RetrysameGateway":"true",
+"SMSstatuswaittime":"00:10:20:800",
+"NewSMSloadinginterval":"00:20:20:500",
+"NextSMSloadinginterval":"00:10:20:500",
+"NextSMSBatchloadinginterval":"00:15:20:500",
+"Statuspollretrylimit":"20",
+"Gatewaystatuscheckertaskinterval":"05:00:20:000"
+}
+]

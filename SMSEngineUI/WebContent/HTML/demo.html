@@ -1,0 +1,152 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+</head>
+<body>
+	<table id="data_table" border="1">
+		<tbody>
+			<tr>
+				<td>t1</td>
+				<td width="100">g3</td>
+			</tr>
+			<tr>
+				<td>t2</td>
+				<td>g4</td>
+			</tr>
+			<tr>
+				<td>t1</td>
+				<td>g1</td>
+			</tr>
+			<tr>
+				<td>t1</td>
+				<td>g2</td>
+			</tr>
+			<tr>
+				<td>t2</td>
+				<td>g2</td>
+			</tr>
+			<tr>
+				<td>t2</td>
+				<td>g2</td>
+			</tr>
+			<tr>
+				<td>t1</td>
+				<td>g0</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="container">
+
+		<div class="dropdown">
+			<button class="btn btn-primary dropdown-toggle" type="button"
+				data-toggle="dropdown">
+				Sort By <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a onClick="javascript:sortData();">Types</a></li>
+				<li><a onClick="javascript:sortData1();">Groups</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		// Table data sorting starts....
+		function sortData() {
+			var tableData = document.getElementById('data_table')
+					.getElementsByTagName('tbody').item(0);
+			var rowData = tableData.getElementsByTagName('tr');
+			for (var i = 0; i < rowData.length - 1; i++) {
+				for (var j = 0; j < rowData.length - (i + 1); j++) {
+					if ((rowData.item(j).getElementsByTagName('td').item(0).innerHTML)
+							.charCodeAt(0) == (rowData.item(j + 1)
+							.getElementsByTagName('td').item(0).innerHTML)
+							.charCodeAt(0)) {
+
+						if ((rowData.item(j).getElementsByTagName('td').item(0).innerHTML)
+								.charCodeAt(1) > (rowData.item(j + 1)
+								.getElementsByTagName('td').item(0).innerHTML)
+								.charCodeAt(1))
+							tableData.insertBefore(rowData.item(j + 1), rowData
+									.item(j));
+					} else if ((rowData.item(j).getElementsByTagName('td')
+							.item(0).innerHTML).charCodeAt(0) > (rowData.item(
+							j + 1).getElementsByTagName('td').item(0).innerHTML)
+							.charCodeAt(0)) {
+						tableData.insertBefore(rowData.item(j + 1), rowData
+								.item(j));
+					}
+				}
+			}
+		};
+
+		function sortData1() {
+			var tableData = document.getElementById('data_table')
+					.getElementsByTagName('tbody').item(0);
+			var rowData = tableData.getElementsByTagName('tr');
+			for (var i = 0; i < rowData.length - 1; i++) {
+				for (var j = 0; j < rowData.length - (i + 1); j++) {
+					if ((rowData.item(j).getElementsByTagName('td').item(1).innerHTML)
+							.charCodeAt(0) == (rowData.item(j + 1)
+							.getElementsByTagName('td').item(1).innerHTML)
+							.charCodeAt(0)) {
+
+						if ((rowData.item(j).getElementsByTagName('td').item(1).innerHTML)
+								.charCodeAt(1) > (rowData.item(j + 1)
+								.getElementsByTagName('td').item(1).innerHTML)
+								.charCodeAt(1)) {
+							tableData.insertBefore(rowData.item(j + 1), rowData
+									.item(j));
+						}
+					} else if ((rowData.item(j).getElementsByTagName('td')
+							.item(1).innerHTML).charCodeAt(0) > (rowData.item(
+							j + 1).getElementsByTagName('td').item(1).innerHTML)
+							.charCodeAt(0)) {
+						tableData.insertBefore(rowData.item(j + 1), rowData
+								.item(j));
+					}
+				}
+			}
+
+			var tableData = document.getElementById('data_table')
+					.getElementsByTagName('tbody').item(0);
+			var rowData = tableData.getElementsByTagName('tr');
+			for (var i = 0; i < rowData.length - 1; i++) {
+				for (var j = 0; j < rowData.length - (i + 1); j++) {
+					if ((rowData.item(j).getElementsByTagName('td').item(0).innerHTML)
+							.charCodeAt(0) == (rowData.item(j + 1)
+							.getElementsByTagName('td').item(0).innerHTML)
+							.charCodeAt(0)) {
+						if ((rowData.item(j).getElementsByTagName('td').item(0).innerHTML)
+								.charCodeAt(1) > (rowData.item(j + 1)
+								.getElementsByTagName('td').item(0).innerHTML)
+								.charCodeAt(1))
+							tableData.insertBefore(rowData.item(j + 1), rowData
+									.item(j));
+					} else if ((rowData.item(j).getElementsByTagName('td')
+							.item(0).innerHTML).charCodeAt(0) > (rowData.item(
+							j + 1).getElementsByTagName('td').item(0).innerHTML)
+							.charCodeAt(0)) {
+						tableData.insertBefore(rowData.item(j + 1), rowData
+								.item(j));
+					}
+				}
+			}
+
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!doctype html>
+<html>
+<head>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"
+	type="text/javascript"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
+	type="text/javascript"></script>
+
+<style>
+.header-fixed {
+	width: 100%
+}
+
+.header-fixed>thead, .header-fixed>tbody, .header-fixed>thead>tr,
+	.header-fixed>tbody>tr, .header-fixed>thead>tr>th, .header-fixed>tbody>tr>td
+	{
+	display: block;
+}
+
+.header-fixed>tbody>tr:after, .header-fixed>thead>tr:after {
+	content: ' ';
+	display: block;
+	visibility: hidden;
+	clear: both;
+}
+
+.header-fixed>tbody {
+	overflow-y: auto;
+	height: 300px;
+}
+
+.header-fixed>tbody>tr>td, .header-fixed>thead>tr>th {
+	width: 15%;
+	float: left;
+}
+</style>
+
+<style>
+#box {
+	height: 500px;
+	overflow: auto;
+}
+</style>
+
+
+
+<link rel="stylesheet"
+	href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.css">
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/locale/bootstrap-table-en-US.min.js"></script>
+
+</head>
+<body>
+	
+	<div class="col-md-5 ">
+		<table data-toggle="table" data-search="true" id="unewtab">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Type Name</th>
+					<th>Option</th>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+	</div>
+
+
+	<div id="box" class="col-md-3 col-md-offset-3 ">
+
+		<table class="table" id="events-table" data-height="299"
+			data-search="true" data-show-columns="true">
+			<thead>
+				<tr>
+					<th data-field="state" data-checkbox="true">Id</th>
+					<th>Type Name</th>
+					<th>Option</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>John</td>
+					<td>Carter</td>
+					<td>johncarter@mail.com</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Peter</td>
+					<td>Parker</td>
+					<td>peterparker@mail.com</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>John</td>
+					<td>Rambo</td>
+					<td>johnrambo@mail.com</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>John</td>
+					<td>Carter</td>
+					<td>johncarter@mail.com</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Peter</td>
+					<td>Parker</td>
+					<td>peterparker@mail.com</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>John</td>
+					<td>Rambo</td>
+					<td>johnrambo@mail.com</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>John</td>
+					<td>Carter</td>
+					<td>johncarter@mail.com</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Peter</td>
+					<td>Parker</td>
+					<td>peterparker@mail.com</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>John</td>
+					<td>Rambo</td>
+					<td>johnrambo@mail.com</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>John</td>
+					<td>Carter</td>
+					<td>johncarter@mail.com</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Peter</td>
+					<td>Parker</td>
+					<td>peterparker@mail.com</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>John</td>
+					<td>Rambo</td>
+					<td>johnrambo@mail.com</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+
+
+	<div class="col-md-11">
+		<table data-toggle="table" data-search="true">
+			<thead>
+				<tr>
+					<th>Row</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>John</td>
+					<td>Carter</td>
+					<td>johncarter@mail.com</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Peter</td>
+					<td>Parker</td>
+					<td>peterparker@mail.com</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>John</td>
+					<td>Rambo</td>
+					<td>johnrambo@mail.com</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script>
+		$(function() {
+			$('#basic-events-table')
+					.next()
+					.click(
+							function() {
+								$(this).hide();
+
+								var $result = $('#events-result');
+
+								$('#events-table')
+										.bootstrapTable({
+										/*
+										onAll: function (name, args) {
+										    console.log('Event: onAll, data: ', args);
+										}
+										onClickRow: function (row) {
+										    $result.text('Event: onClickRow, data: ' + JSON.stringify(row));
+										},
+										onDblClickRow: function (row) {
+										    $result.text('Event: onDblClickRow, data: ' + JSON.stringify(row));
+										},
+										onSort: function (name, order) {
+										    $result.text('Event: onSort, data: ' + name + ', ' + order);
+										},
+										onCheck: function (row) {
+										    $result.text('Event: onCheck, data: ' + JSON.stringify(row));
+										},
+										onUncheck: function (row) {
+										    $result.text('Event: onUncheck, data: ' + JSON.stringify(row));
+										},
+										onCheckAll: function () {
+										    $result.text('Event: onCheckAll');
+										},
+										onUncheckAll: function () {
+										    $result.text('Event: onUncheckAll');
+										},
+										onLoadSuccess: function (data) {
+										    $result.text('Event: onLoadSuccess, data: ' + data);
+										},
+										onLoadError: function (status) {
+										    $result.text('Event: onLoadError, data: ' + status);
+										},
+										onColumnSwitch: function (field, checked) {
+										    $result.text('Event: onSort, data: ' + field + ', ' + checked);
+										},
+										onPageChange: function (number, size) {
+										    $result.text('Event: onPageChange, data: ' + number + ', ' + size);
+										},
+										onSearch: function (text) {
+										    $result.text('Event: onSearch, data: ' + text);
+										}
+										 */
+										})
+										.on(
+												'all.bs.table',
+												function(e, name, args) {
+													console.log('Event:', name,
+															', data:', args);
+												})
+										.on(
+												'click-row.bs.table',
+												function(e, row, $element) {
+													$result
+															.text('Event: click-row.bs.table, data: '
+																	+ JSON
+																			.stringify(row));
+												})
+										.on(
+												'dbl-click-row.bs.table',
+												function(e, row, $element) {
+													$result
+															.text('Event: dbl-click-row.bs.table, data: '
+																	+ JSON
+																			.stringify(row));
+												})
+										.on(
+												'sort.bs.table',
+												function(e, name, order) {
+													$result
+															.text('Event: sort.bs.table, data: '
+																	+ name
+																	+ ', '
+																	+ order);
+												})
+										.on(
+												'check.bs.table',
+												function(e, row) {
+													$result
+															.text('Event: check.bs.table, data: '
+																	+ JSON
+																			.stringify(row));
+												})
+										.on(
+												'uncheck.bs.table',
+												function(e, row) {
+													$result
+															.text('Event: uncheck.bs.table, data: '
+																	+ JSON
+																			.stringify(row));
+												})
+										.on(
+												'check-all.bs.table',
+												function(e) {
+													$result
+															.text('Event: check-all.bs.table');
+												})
+										.on(
+												'uncheck-all.bs.table',
+												function(e) {
+													$result
+															.text('Event: uncheck-all.bs.table');
+												})
+										.on(
+												'load-success.bs.table',
+												function(e, data) {
+													$result
+															.text('Event: load-success.bs.table');
+												})
+										.on(
+												'load-error.bs.table',
+												function(e, status) {
+													$result
+															.text('Event: load-error.bs.table, data: '
+																	+ status);
+												})
+										.on(
+												'column-switch.bs.table',
+												function(e, field, checked) {
+													$result
+															.text('Event: column-switch.bs.table, data: '
+																	+ field
+																	+ ', '
+																	+ checked);
+												})
+										.on(
+												'page-change.bs.table',
+												function(e, size, number) {
+													$result
+															.text('Event: page-change.bs.table, data: '
+																	+ number
+																	+ ', '
+																	+ size);
+												})
+										.on(
+												'search.bs.table',
+												function(e, text) {
+													$result
+															.text('Event: search.bs.table, data: '
+																	+ text);
+												});
+							});
+		});
+	</script>
+
+	<script>
+		function operateFormatter(value, row, index) {
+			return [ '<center><button class="btn btn-sm btn-success title edit">Edit</button></center>' ]
+					.join('');
+		}
+
+		window.operateEvents = {
+
+			'click .edit' : function(e, value, row, index) {
+				alert('You click edit icon, row: ' + JSON.stringify(row));
+				console.log(value, row, index);
+			},
+
+		};
+	</script>
+	 <script type="text/javascript" src="tableinp.js"></script> 
+	<!-- <script type="text/javascript" src="webtemp.js"></script> -->
+</body>
+</html>
