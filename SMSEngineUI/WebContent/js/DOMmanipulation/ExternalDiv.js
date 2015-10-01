@@ -8,7 +8,7 @@ $(document).ready(function() {
 $(document).ready(function() {
 	$.get("../HTML/PresentGatewayData.html", function(data) {
 		$("#gatewayConfig").append(data);
-		 gatewayTable1Function();
+		gatewayTable1Function();
 	});
 	return false;
 });
@@ -23,8 +23,7 @@ $(document).ready(function() {
 $(document).ready(function() {
 	$.get("../HTML/PresentTemplateData.html", function(data) {
 		$("#templateConfig").append(data);
-		fun1();
-		addRow();
+
 	});
 	return false;
 });
