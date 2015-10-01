@@ -3,15 +3,10 @@ function populateSecondTemplateTable(response) {
 	var arr = JSON.parse(response);
 	var out;
 
-	out += " <table id=\"firstTempTable\" data-height=\" 300\" data-search-time-out=\"1\""
+	out += " <table  data-height=\" 300\" data-search-time-out=\"1\""
 			+ "data-striped=\" true\""
-			+ "data-toggle=\"table\" data-search=\"true\" >"
-			+ "<caption style=\"border: inherit; background-color: lightgrey;\">"
-			+ "<span class=\"align-left\"><strong>Types</strong></span>"
-			+ "</caption>"
-			+ "<thead>"
-			+ "<tr>"
-			+ "<th data-sortable=\"true\">Type</th>"
+			+ "data-toggle=\"table\" data-search=\"true\" >" + "<thead>"
+			+ "<tr>" + "<th data-sortable=\"true\">Type</th>"
 			+ "<th data-sortable=\"true\">Group</th>"
 			+ "<th data-sortable=\"true\">Values</th></tr></thead>" + "<tbody>";
 

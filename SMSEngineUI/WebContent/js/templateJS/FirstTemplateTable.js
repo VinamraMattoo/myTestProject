@@ -6,6 +6,7 @@ $(document).ready(function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			populateFirstTemplateTable(xmlhttp.responseText);
 			populateSecondTemplateTable(xmlhttp.responseText);
+			populateThirdTemplateTable(xmlhttp.responseText);
 		}
 	}
 	xmlhttp.open("GET", url, true);
