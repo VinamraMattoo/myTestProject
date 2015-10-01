@@ -21,19 +21,6 @@
 
 <div class="col-md-12">
 
-	<div class="container">
-
-		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle" type="button"
-				data-toggle="dropdown">
-				Sort By <span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu">
-				<li><a onClick="javascript:sortData();">Types</a></li>
-				<!-- <li><a onClick="javascript:sortData1();">Groups</a></li> -->
-			</ul>
-		</div>
-	</div>
 
 	<table data-single-select="true" data-height=" 300"
 		data-search-time-out="1" data-select-item-name='checkbox'
@@ -62,7 +49,7 @@
 <script type="text/javascript">
 	// Table data sorting starts....
 	function sortData() {
-		
+
 		var tableData = document.getElementById('firstTempTable')
 				.getElementsByTagName('tbody').item(1);
 

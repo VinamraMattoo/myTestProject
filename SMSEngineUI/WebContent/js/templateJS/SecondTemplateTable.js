@@ -16,11 +16,12 @@ function populateSecondTemplateTable(response) {
 			+ "<th data-sortable=\"true\">Values</th></tr></thead>" + "<tbody>";
 
 	for (var i = 0; i < arr.length; i++) {
-		alert(arr[i].smsGroupVOs.length);
+
 		for (var j = 0; j < arr[i].smsGroupVOs.length; j++) {
-			alert(arr[i].smsGroupVOs[j]);
-			out += "<tr>" + "<td><strong>" + arr[i].name
-			"</strong></td>" + "<td><strong>" + arr[i].smsGroupVOs[j].name
+			// alert(arr[i].smsGroupVOs[j].cpContentMatchValue);
+
+			out += "<tr>" + "<td><strong>" + arr[i].name + "</strong></td>"
+					+ "<td><strong>" + arr[i].smsGroupVOs[j].name
 					+ "</strong></td>" + "<td><strong>"
 					+ arr[i].smsGroupVOs[j].cpContentMatchValue
 					+ "</strong></td>" + "</tr>";
