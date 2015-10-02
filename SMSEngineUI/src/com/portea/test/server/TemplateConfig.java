@@ -35,7 +35,7 @@ public class TemplateConfig extends HttpServlet {
 				+ "\"cpContentMatchType\": \"ABSOLUTE_PERIOD\"," + "\"cpContentMatchValue\": 300,"
 				+ " \"cpTypeMatchType\": \"CALENDAR_DAY\"," + "\"cpTypeMatchValue\": 2," + "\"expiresIn\": 15," +
 
-		"smsGroupVOs: [{" + "\"id\": 1," + "\"name\": \"Appointment summary\"," + "\"desc\": \"description\","
+		"\"smsGroupVOs\": [{" + "\"id\": 1," + "\"name\": \"Appointment summary\"," + "\"desc\": \"description\","
 				+ "\"cpContentMatchType\": \"ABSOLUTE_PERIOD\"," + "\"cpContentMatchValue\": 300,"
 				+ "\"cpTypeMatchType\": \"CALENDAR_DAY\"," + "\"cpTypeMatchValue\": 2," + "\"isBulk\": false,"
 				+ "\"priority\": 2," + "\"smsTemplateVOs\": [{" + "\"id\": 1," + "\"name\": \"patient_lead_sms\","
@@ -53,7 +53,7 @@ public class TemplateConfig extends HttpServlet {
 				+ "\"cpContentMatchType\": \"ABSOLUTE_PERIOD\"," + "\"cpContentMatchValue\": 300,"
 				+ " \"cpTypeMatchType\": \"CALENDAR_DAY\"," + "\"cpTypeMatchValue\": 2," + "\"expiresIn\": 15," +
 
-		"smsGroupVOs: [{" + "\"id\": 4," + "\"name\": \"Pol summary\"," + "\"desc\": \"description\","
+		"\"smsGroupVOs\": [{" + "\"id\": 4," + "\"name\": \"Pol summary\"," + "\"desc\": \"description\","
 				+ "\"cpContentMatchType\": \"ABSOLUTE_PERIOD\"," + "\"cpContentMatchValue\": 300,"
 				+ "\"cpTypeMatchType\": \"CALENDAR_DAY\"," + "\"cpTypeMatchValue\": 2," + "\"isBulk\": false,"
 				+ "\"priority\": 2," + "\"smsTemplateVOs\": [{" + "\"id\": 1," + "\"name\": \"Temp_name\","
@@ -64,8 +64,7 @@ public class TemplateConfig extends HttpServlet {
 				+ "\"cpTypeMatchType\": \"CALENDAR_DAY\"," + "\"cpTypeMatchValue\": 2," + "\"isBulk\": false,"
 				+ "\"priority\": 2," + "\"smsTemplateVOs\": [{" + "\"id\": 1," + "\"name\": \"nursing_lead_sms\","
 				+ "\"retryCount\": 2," + "\"messageExpiry\": 88" + "}," + "{" + "\"id\": 2,"
-				+ "\"name\": \"WFM_lead_sms\"," + "\"retryCount\": 2," + "\"messageExpiry\": 70" + "}]"
-		+ "}]" + "}]");
+				+ "\"name\": \"WFM_lead_sms\"," + "\"retryCount\": 2," + "\"messageExpiry\": 70" + "}]" + "}]" + "}]");
 		response.getWriter().append(builder.toString());
 
 	}
