@@ -71,7 +71,7 @@ response :
     example :
     [
       {
-        "id": 2,
+        "id": 1,
         "name": "Appointment Scheduled",
         "desc": "sms group description goes here..",
         "cpContentMatchType": "ABSOLUTE_PERIOD",
@@ -83,9 +83,36 @@ response :
             "id": 1,
             "name": "MGAGE",
             "priority": 1
+          },
+           {
+            "id": 2,
+            "name": "SECGW",
+            "priority": 4
           }
-        ]
+       	 ]
+      },
+      {
+        "id": 2,
+        "name": "Appointment Scheduled",
+        "desc": "sms group description goes here..",
+        "cpContentMatchType": "ABSOLUTE_PERIOD",
+        "cpContentMatchValue": 1313,
+        "cpTypeMatchType": "CALENDAR_DAY",
+        "cpTypeMatchValue": 2,
+        "gwPriorities": [
+          {
+            "id": 1,
+            "name": "MGAGE",
+            "priority": 2
+          },
+           {
+            "id": 1,
+            "name": "THGW",
+            "priority": 3
+          }
+       	 ]
       }
+      
     ]
 
 

@@ -8,6 +8,8 @@ $(document).ready(function() {
 			populateSecondTemplateTable(xmlhttp.responseText);
 			populateThirdTemplateTable(xmlhttp.responseText);
 		}
+		else
+			alert("Not loading")
 	}
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
