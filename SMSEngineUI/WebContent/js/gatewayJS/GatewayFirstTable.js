@@ -1,116 +1,61 @@
-var g1 = [ {
-	gatewayName : "gate1",
-	priority : "3"
-}, {
-	gatewayName : "gate2",
-	priority : "2"
-}, {
-	gatewayName : "gate3",
-	priority : "1"
-}, {
-	gatewayName : "gate4",
-	priority : "5"
-} ];
+$("#GatewayConfig").click(function() {
+	var xmlhttp = new XMLHttpRequest();
+	var url = "http://localhost:8082/TestSmsServerProject/GatewayJSON";
 
-var g2 = [ {
-	gatewayName : "gate1",
-	priority : "3"
-}, {
-	gatewayName : "gate2",
-	priority : "2"
-}, {
-	gatewayName : "gate3",
-	priority : "1"
-}, {
-	gatewayName : "gate4",
-	priority : "5"
-} ];
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			populateFirstGatewayTable(xmlhttp.responseText);
 
-var g3 = [ {
-	gatewayName : "gate1",
-	priority : "3"
-}, {
-	gatewayName : "gate2",
-	priority : "2"
-}, {
-	gatewayName : "gate3",
-	priority : "1"
-}, {
-	gatewayName : "gate4",
-	priority : "5"
-} ];
+		} else
+			alert("Not loading")
+	}
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
 
-var g4 = [ {
-	gatewayName : "gate1",
-	priority : "3"
-}, {
-	gatewayName : "gate2",
-	priority : "2"
-}, {
-	gatewayName : "gate3",
-	priority : "1"
-}, {
-	gatewayName : "gate4",
-	priority : "5"
-} ];
+});
 
-var groups = [ {
-	gid : g1,
-	Gname : "group1"
-}, {
-	gid : g2,
-	Gname : "group2"
-}, {
-	gid : g3,
-	Gname : "group3"
-}, {
-	gid : g4,
-	Gname : "group4"
-} ];
-
-// myFunction1(xmlhttp.responseText);
-/*
- * xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 &&
- * xmlhttp.status == 200) { myFunction1(xmlhttp.responseText); } }
- * xmlhttp.open("GET", url, true); xmlhttp.send();
- */
-/* function myFunction1(response) { */
-
-// var arr = JSON.parse(response);
-function gatewayTable1Function() {
-	var i;
-
-	/*
-	 * var out = "<table class=\"table table-striped\"
-	 * data-row-style=\"rowStyle\">"; out += "<thead><tr><td>" + "Name" + "</td><td>" +
-	 * "Value" + "</td></tr></thead>";
-	 */
+function populateFirstGatewayTable(response) {
+	var arr = JSON.parse(response);
 	var out;
-	for (var i = 0; i < groups.length; i++) {
-		out += "<tr><td>" + groups[i].Gname + "</td>";
-		for (var j = 0; j < groups[i].gid.length; j++) {
-		/*
-		 * temp = "onmouseover=\"<span class=\"glyphicon glyphicon-remove\"
-		 * onclick=\"closefun(" + i + "," + j + ")\" id=\"close\"></span>";
-		 *//*	temp = "onmouseover=\"alert(\"hey\")\"";
-		onmouseover=\"toggle('hidden1')\"
-*/
-			// alert(i+","+j+","+groups[i].gid[j].priority)
-			
-			out += "<td  onmouseover=\"alert(\"hey\")\" id=\"priorityId"
-				+ i
-				+ j
-				+ "\"  >"
-				+ groups[i].gid[j].priority
-				+ "<span class=\"glyphicon glyphicon-remove\" onclick=\"closefun("
-				+ i + "," + j + ")\" id=\"close\"></span>" + "</td>";
+	var gwarr = [ "MGAGE", "SECGW", "THGW", "FORTHGW" ];
+	out += "<table data-height=\" 300\" data-search-time-out=\"1\""
+			+ "data-single-select=\"true\" data-select-item-name='checkbox'"
+			+ "data-striped=\" true\" data-toggle=\"table\" data-search=\"true\""
+			+ "data-show-toggle=\"true\"" + "data-click-to-select=\"true\">"
+			+ "<thead><tr>" + "<th>Groups</th>" + "<th>MGAGE</th>"
+			+ "<th>SECGW</th>" + "<th>THGW</th>"
+			+ "<th>FORTHGW</th></thead><tbody>";
+
+	for (var i = 0; i < arr.length; i++) {
+		out += "<tr><td>" + arr[i].name + "</td>";
+		for (var j = 0; j < arr[i].gwPriorities.length; j++) {
+			for (var k = 0; k < gwarr.length; k++) {
+				if (arr[i].gwPriorities[j].name == gwarr[k]) {
+					out += "<td  id=\"priorityId"
+							+ i
+							+ j
+							+ "\"  >"
+							+ arr[i].gwPriorities[j].priority
+							+ "<span class=\"glyphicon glyphicon-remove\" onclick=\"closefun("
+							+ i + "," + j + ")\" id=\"close\"></span>"
+							+ "</td>";
+					continue;
+				}
+			}
+			out += "<td id=\"priorityId"
+					+ i
+					+ j
+					+ "\"  >"
+					+ "NA"
+					+ "<span class=\"glyphicon glyphicon-remove\" onclick=\"closefun("
+					+ i + "," + j + ")\" id=\"close\"></span>" + "</td>";
 
 		}
-		out += "<td></td></tr>";
+		out += "</tr>";
 	}
-	out += "</table>";
+	out += "</tbody></table>";
 
-	$('#GatewayF1Table').append(out);
+	$('#GatewayPriorityTable1').append(out);
 
 };
 function closefun(val1, val2) {

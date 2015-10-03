@@ -1,4 +1,4 @@
-$(document)
+/*$(document)
 		.ready(
 				function() {
 					var out = "<table  style=\"background-color: white\" data-toggle=\"table\" >";
@@ -53,4 +53,4 @@ function mapGroupToGateway(priority) {
 		alert("please select a group and a gateway");
 		return;
 	}
-}
+}*/

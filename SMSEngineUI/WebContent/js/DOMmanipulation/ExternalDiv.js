@@ -8,7 +8,6 @@ $(document).ready(function() {
 $(document).ready(function() {
 	$.get("../HTML/PresentGatewayData.html", function(data) {
 		$("#gatewayConfig").append(data);
-		gatewayTable1Function();
 	});
 	return false;
 });
