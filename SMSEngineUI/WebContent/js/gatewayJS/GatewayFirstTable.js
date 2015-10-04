@@ -1,4 +1,4 @@
-$("#GatewayConfig").click(function() {
+$(document).ready(function() {
 	var xmlhttp = new XMLHttpRequest();
 	var url = "http://localhost:8082/TestSmsServerProject/GatewayJSON";
 
