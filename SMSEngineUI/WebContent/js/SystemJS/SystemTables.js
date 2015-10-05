@@ -32,17 +32,27 @@ $(document)
 					function myFunction2(response) {
 						var arr = JSON.parse(response);
 						var i;
-						var out = "<div class=\"form-group\">";
+						var out = "<form action=\"\" id=\"system_edit_form\">";
 						for (i = 0; i < arr.length; i++) {
-							out += "<label for=\"name\">" + arr[i].name
-									+ "</label><br><br>"
-									+ "<input class=\"form-control\" "
+							out += "<label>" + arr[i].name
+									+ "</label><br><br><div class=\"sys_input_fields\">"
+									+ "<input name=\"id\""
+									+ "value=" + "\"" + i + "\""
+									+ "type=\"hidden\"" 
+									+ " /><br><br>"
+									+ "<input name=\"value\" class=\"form-control\""
 									+ "value=" + "\"" + arr[i].value + "\""
-									+ "type=" + arr[i].dataType
-									+ "step=\"any\"" + "id=\"name\" /><br><br>";
-
+									+ "type=" + "\"" + arr[i].datatype  + "\""
+									+ " /><br><br>"
+							+"<select class=\"form-control text-center\" name=\"state\">"
+							+"<option value=\"false\">Inactive</option>"
+							+"<option value=\"true\" selected>Active</option>"
+							+"</select> </div><br><br>";						
+							
+							
 						}
-						out += "</div><br>";
+						out += "<input type=\"submit\" value=\"submit\">"
+								+"</form><br>";
 						$('#update-grp-1').append(out);
 					}
 
