@@ -357,14 +357,15 @@ body {
 
 					<div class="form-group">
 						<label for="name">Enter new priority</label> <input
-							class="form-control" type="number" id="newPriority"
+							class="form-control" type="number" id="newPriority" onkeyup="validateInput()"
 							name="newPriority" />
 					</div>
+					<div id="InfoMsg"></div>
 
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary pull-left "
-						data-dismiss="modal" onclick="changePriority()">Submit</button>
+						data-dismiss="modal" id="updatePriority" onclick="changePriority()">Submit</button>
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>

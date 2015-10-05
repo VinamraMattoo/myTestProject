@@ -4,6 +4,7 @@ $(document).ready(function() {
 
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
 			populateFirstGatewayTable(xmlhttp.responseText);
 
 		} else
@@ -13,15 +14,15 @@ $(document).ready(function() {
 	xmlhttp.send();
 
 });
-
+var Jsonarr;
 function populateFirstGatewayTable(response) {
 	var arr = JSON.parse(response);
+	Jsonarr = arr;
 	var gwarr = [ "MGAGE", "SECGW", "THGW", "FORTHGW" ];
 	var out;
 	var flag = 1;
 	var priorityArr = [];
 
-	var gwarr = [ "MGAGE", "SECGW", "THGW", "FORTHGW" ];
 	out += "<table data-height=\" 300\" data-search-time-out=\"1\""
 			+ "data-striped=\" true\" data-toggle=\"table\" data-search=\"true\""
 			+ "data-click-to-select=\"true\">" + "<thead><tr>"
@@ -41,6 +42,7 @@ function populateFirstGatewayTable(response) {
 							+ "<span class=\"glyphicon glyphicon-edit\" onclick=\"closefun("
 							+ i + "," + j + ")\" id=\"close\"></span>"
 							+ "</td>";
+
 					flag = 0;
 				}
 
@@ -57,29 +59,9 @@ function populateFirstGatewayTable(response) {
 			flag = 1;
 		}
 
-		// priorityArr.push(arr[i].gwPriorities[j].name);
-
 		out += "</tr>";
 	}
 	out += "</tbody></table>";
-
-	/*
-	 * 
-	 * 
-	 * for (var k = 0; k < gwarr.length; k++) { if (arr[i].gwPriorities[j].name ==
-	 * gwarr[k]) { out += "<td id=\"priorityId" + i + j + "\" >" +
-	 * arr[i].gwPriorities[j].priority + "<span class=\"glyphicon
-	 * glyphicon-remove\" onclick=\"closefun(" + i + "," + j + ")\"
-	 * id=\"close\"></span>" + "</td>"; flag = 1; } } if (flag != 1) { out += "<td
-	 * id=\"priorityId" + i + j + "\" >" + "NA" + "<span class=\"glyphicon
-	 * glyphicon-remove\" onclick=\"closefun(" + i + "," + j + ")\"
-	 * id=\"close\"></span>" + "</td>"; }
-	 * 
-	 * 
-	 * out += "</tr>";
-	 * 
-	 * out += "</tbody></table>";
-	 */
 
 	$('#GatewayPriorityTable1').append(out);
 
@@ -89,18 +71,33 @@ function closefun(val1, val2) {
 
 	priorityId = "priorityId" + String(val1) + String(val2);
 	$('#editPriority').modal('show');
-
 };
 
+function validateInput() {
+	var x = document.getElementById("newPriority").value;
+	var flag;
+	var i = priorityId.slice(10, 11);
+	var arr = Jsonarr;
+
+	for (var j = 0; j < arr[i].gwPriorities.length; j++) {
+		if (x == arr[i].gwPriorities[j].priority)
+			flag = 1;
+	}
+	if (flag == 1) {
+		$("#InfoMsg").toggle();
+		document.getElementById('InfoMsg').innerHTML = "Priority already taken! Please try another value";
+		document.getElementById('updatePriority').disabled = true;
+	} else {
+		document.getElementById('updatePriority').disabled = false;
+		$("#InfoMsg").toggle();
+	}
+};
 function changePriority() {
 
 	var newVal = document.getElementById('newPriority');
-	var ij = priorityId.slice(-2);
-	alert(priorityId);
-	var i = ij.slice(1);
-	var j = ij.slice(-1);
-	alert(ij + "," + i + "," + j);
-	// alert(document.getElementById('priorityId').value);
+	var i = priorityId.slice(10, 11);
+	var j = priorityId.slice(11, 12);
+
 	document.getElementById(priorityId).innerHTML = newVal.value
 			+ "<span class=\"glyphicon glyphicon-edit\" onclick=\"closefun("
 			+ i + "," + j + ")\" id=\"close\"></span>";
