@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	var xmlhttp = new XMLHttpRequest();
-	var url = "http://localhost:8082/TestSmsServerProject/GatewayJSON";
+	var url = "../JSON/GatewayJSON.txt";
 
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -26,8 +26,8 @@ function populateFirstGatewayTable(response) {
 	out += "<table data-height=\" 300\" data-search-time-out=\"1\""
 			+ "data-striped=\" true\" data-toggle=\"table\" data-search=\"true\""
 			+ "data-click-to-select=\"true\">" + "<thead><tr>"
-			+ "<th>Groups</th>" + "<th>MGAGE</th>" + "<th>SECGW</th>"
-			+ "<th>THGW</th>" + "<th>FORTHGW</th></thead><tbody>";
+			+ "<th>Groups</th>" + "<th><button class=\"btn btn-success btn-sm\">MGAGE</button></th>" + "<th><button class=\"btn btn-success btn-sm\">SECGW</button></th>"
+			+ "<th><button class=\"btn btn-success btn-sm\">THGW</button></th>" + "<th><button class=\"btn btn-success btn-sm\">FORTHGW</button></th></thead><tbody>";
 
 	for (var i = 0; i < arr.length; i++) {
 		out += "<tr><td>" + arr[i].name + "</td>";

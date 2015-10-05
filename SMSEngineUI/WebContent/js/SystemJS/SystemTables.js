@@ -2,7 +2,7 @@ $(document)
 		.ready(
 				function() {
 					var xmlhttp = new XMLHttpRequest();
-					var url = "http://localhost:8082/TestSmsServerProject/myFirstServlet";
+					var url = "../JSON/sys.txt";
 					var responseData;
 					xmlhttp.onreadystatechange = function() {
 						if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
