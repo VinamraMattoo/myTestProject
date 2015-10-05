@@ -7,7 +7,7 @@ $(document).ready(function() {
 			populateFirstGatewayTable(xmlhttp.responseText);
 
 		} else
-			alert("Not loading")
+			alert("Not loading");
 	}
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
@@ -17,6 +17,8 @@ $(document).ready(function() {
 function populateFirstGatewayTable(response) {
 	var arr = JSON.parse(response);
 	var out;
+	var flag;
+	// var priorityArr;
 	var gwarr = [ "MGAGE", "SECGW", "THGW", "FORTHGW" ];
 	out += "<table data-height=\" 300\" data-search-time-out=\"1\""
 			+ "data-single-select=\"true\" data-select-item-name='checkbox'"
@@ -29,7 +31,9 @@ function populateFirstGatewayTable(response) {
 	for (var i = 0; i < arr.length; i++) {
 		out += "<tr><td>" + arr[i].name + "</td>";
 		for (var j = 0; j < arr[i].gwPriorities.length; j++) {
+			// priorityArr.push(arr[i].gwPriorities[j].name);
 			for (var k = 0; k < gwarr.length; k++) {
+
 				if (arr[i].gwPriorities[j].name == gwarr[k]) {
 					out += "<td  id=\"priorityId"
 							+ i
@@ -39,18 +43,21 @@ function populateFirstGatewayTable(response) {
 							+ "<span class=\"glyphicon glyphicon-remove\" onclick=\"closefun("
 							+ i + "," + j + ")\" id=\"close\"></span>"
 							+ "</td>";
-					continue;
+					flag = 1;
 				}
 			}
-			out += "<td id=\"priorityId"
-					+ i
-					+ j
-					+ "\"  >"
-					+ "NA"
-					+ "<span class=\"glyphicon glyphicon-remove\" onclick=\"closefun("
-					+ i + "," + j + ")\" id=\"close\"></span>" + "</td>";
+			if (flag != 1) {
+				out += "<td id=\"priorityId"
+						+ i
+						+ j
+						+ "\"  >"
+						+ "NA"
+						+ "<span class=\"glyphicon glyphicon-remove\" onclick=\"closefun("
+						+ i + "," + j + ")\" id=\"close\"></span>" + "</td>";
 
+			}
 		}
+
 		out += "</tr>";
 	}
 	out += "</tbody></table>";
@@ -58,11 +65,25 @@ function populateFirstGatewayTable(response) {
 	$('#GatewayPriorityTable1').append(out);
 
 };
+var priorityId;
 function closefun(val1, val2) {
 
-	var temp = "priorityId" + String(val1) + String(val2);
+	priorityId = "priorityId" + String(val1) + String(val2);
+	$('#editPriority').modal('show');
 
-	document.getElementById(temp).innerHTML = "NA";
+};
 
+function changePriority() {
+
+	var newVal = document.getElementById('newPriority');
+	var ij = priorityId.slice(-2);
+	alert(priorityId);
+	var i = ij.slice(1);
+	var j = ij.slice(-1);
+	alert(ij + "," + i + "," + j);
+	// alert(document.getElementById('priorityId').value);
+	document.getElementById(priorityId).innerHTML = newVal.value
+			+ "<span class=\"glyphicon glyphicon-remove\" onclick=\"closefun("
+			+i+","+j+")\" id=\"close\"></span>";
 };
 
