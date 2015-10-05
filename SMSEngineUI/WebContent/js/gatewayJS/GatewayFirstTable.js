@@ -87,9 +87,10 @@ function validateInput() {
 		$("#InfoMsg").toggle();
 		document.getElementById('InfoMsg').innerHTML = "Priority already taken! Please try another value";
 		document.getElementById('updatePriority').disabled = true;
+		$("#InfoMsg").show();
 	} else {
 		document.getElementById('updatePriority').disabled = false;
-		$("#InfoMsg").toggle();
+		$("#InfoMsg").hide();
 	}
 };
 function changePriority() {
