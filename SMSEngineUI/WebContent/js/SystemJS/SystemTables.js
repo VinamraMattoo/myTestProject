@@ -51,8 +51,7 @@ $(document)
 							
 							
 						}
-						out += "<input type=\"submit\" value=\"submit\">"
-								+"</form><br>";
+						out += "</form><br>";
 						$('#update-grp-1').append(out);
 					}
 
