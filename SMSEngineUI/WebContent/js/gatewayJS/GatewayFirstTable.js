@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 			populateFirstGatewayTable(xmlhttp.responseText);
 
-		} 
+		}
 	}
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
@@ -102,20 +102,16 @@ function validateInput() {
 function changePriority() {
 
 	var data = $('#priorityDiv').map(function() {
-	    return {
-	        gid: $(this).find('[name="gid"]').val(),
-	        gwid: $(this).find('[name="gwid"]').val(),
-	        value: $(this).find('[name="value"]').val(),
-	    };
+		return {
+			gid : $(this).find('[name="gid"]').val(),
+			gwid : $(this).find('[name="gwid"]').val(),
+			value : $(this).find('[name="value"]').val(),
+		};
 	}).get();
 	alert(JSON.stringify(data));
-	
-	
-	
-/*	do a ajax call here and check the status from the server*/
-	
-	
-	
+
+	/* do a ajax call here and check the status from the server */
+
 	var newVal = document.getElementById('newPriority');
 	var i = priorityId.slice(10, 11);
 	var j = priorityId.slice(11, 12);
@@ -123,7 +119,7 @@ function changePriority() {
 	document.getElementById(priorityId).innerHTML = newVal.value
 			+ "<span class=\"glyphicon glyphicon-edit\" onclick=\"closefun("
 			+ i + "," + j + ")\" id=\"close\"></span>";
-	    
+
 };
 function sendPriorityAJAX(i, j) {
 	var arr = Jsonarr;
@@ -135,5 +131,4 @@ function sendPriorityAJAX(i, j) {
 	$('#priorityDiv').append(out);
 
 };
-
 
