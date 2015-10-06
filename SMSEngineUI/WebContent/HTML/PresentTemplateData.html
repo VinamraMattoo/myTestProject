@@ -111,19 +111,5 @@
 
 	};
 </script>
-<script>
-	function operateFormatter(value, row, index) {
-		return [ '<center><div id="edit-button"><button  class="btn btn-sm btn-success title edit">Edit</button></div></center>' ]
-				.join('');
-	}
 
-	window.operateEvents = {
-
-		'click .edit' : function(e, value, row, index) {
-			alert('You click edit icon, row: ' + JSON.stringify(row));
-			console.log(value, row, index);
-		},
-
-	};
-</script>
 <!-- closes here -->

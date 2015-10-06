@@ -22,20 +22,16 @@ function populateFirstTemplateTable(response) {
 	out += " <table id=\"firstTempTable\" data-height=\" 300\" data-search-time-out=\"1\""
 			+ "data-striped=\" true\""
 			+ "data-toggle=\"table\" data-search=\"true\" >"
-			+ "<caption style=\"border: inherit; background-color: lightgrey;\">"
-			+ "<span class=\"align-left\"><strong>Types</strong></span>"
-			+ "</caption>"
 			+ "<thead>"
 			+ "<tr>"
 			+ "<th data-sortable=\"true\">Types</th>"
-			+ "<th data-field=\"operate\" data-formatter=\"operateFormatter\""
-			+ "data-events=\"operateEvents\">Options</th></tr></thead>"
+			+ "<th>Options</th></tr></thead>"
 			+ "<tbody>";
 
 	for (var i = 0; i < arr.length; i++) {
 
 		out += "<tr>" + "<td><strong>" + arr[i].name
-		"</strong></td></tr>";
+		+"</strong></td><td><button onclick=\"EditTypeProp()\">Edit</td></tr>";
 
 	}
 
@@ -44,4 +40,7 @@ function populateFirstTemplateTable(response) {
 	$("#TemplateFirstTable").append(out);
 
 };
-
+function EditTypeProp()
+{
+	alert("comin here");
+};
