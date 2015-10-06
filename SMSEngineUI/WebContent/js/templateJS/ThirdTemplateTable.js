@@ -13,24 +13,55 @@ function populateThirdTemplateTable(response) {
 			+ "<th data-sortable=\"true\">Group</th>"
 			+ "<th data-sortable=\"true\">Template</th>"
 			+ "<th data-sortable=\"true\">Values</th>"
-			+ "<th data-field=\"operate\" data-formatter=\"operateFormatter\""
-			+ "data-events=\"operateEvents\">Options</th></tr></thead>"
-			+ "<tbody>";
+			+ "<th>Options</th></tr></thead>" + "<tbody>";
 
 	for (var i = 0; i < arr.length; i++) {
 		for (var j = 0; j < arr[i].smsGroupVOs.length; j++) {
 			for (var k = 0; k < arr[i].smsGroupVOs[j].smsTemplateVOs.length; k++) {
 
-				out += "<tr>" + "<td><strong>" + arr[i].name + "</strong></td>"
-						+ "<td><strong>" + arr[i].smsGroupVOs[j].name
-						+ "</strong></td>" + "<td><strong>"
+				out += "<tr>"
+						+ "<td><strong>"
+						+ arr[i].name
+						+ "</strong></td>"
+						+ "<td><strong>"
+						+ arr[i].smsGroupVOs[j].name
+						+ "</strong></td>"
+						+ "<td><strong>"
 						+ arr[i].smsGroupVOs[j].smsTemplateVOs[k].name
-						+ "</strong></td>" + "<td><strong>"
+						+ "</strong></td>"
+						+ "<td><strong>"
 						+ arr[i].smsGroupVOs[j].smsTemplateVOs[k].retryCount
-						+ "</strong></td>" + "</tr>";
+						+ "</strong></td>"
+						+ "<td><button class=\"btn btn-primary btn-sm\" onclick=\"EditTemplateProp("
+						+ arr[i].id + "," + arr[i].smsGroupVOs[j].id + ","
+						+ arr[i].smsGroupVOs[j].smsTemplateVOs[k].id
+						+ ")\">Edit</td></tr>";
 			}
 		}
 	}
 	out += "</tbody></table>"
 	$("#TemplateThirdTable1").append(out);
+};
+function EditTemplateProp(tid, gid, templId) {
+	var arr = JsonArray;
+	var out;
+	for (var i = 0; i < arr.length; i++) {
+		for (var j = 0; j < arr[i].smsGroupVOs.length; j++) {
+			for (var k = 0; k < arr[i].smsGroupVOs[j].smsTemplateVOs.length; k++) {
+				if (tid == arr[i].id && gid == arr[i].smsGroupVOs[j].id
+						&& templId == arr[i].smsGroupVOs[j].smsTemplateVOs[k].id) {
+
+					out += "<div class=\"tempfield\">"
+							+ "<input type=\"hidden\" name=\"id\" value=\"1\">"
+							+ "<label name=\"name\">patient_lead_sms</label>"
+							+ "<input type=\"text\" name=\"retryCount\" value=1> <br />"
+							+ "<input type=\"text\"	name=\"messageExpiry\" value=3>"
+							+ "</div>";
+
+				}
+			}
+		}
+	}
+	$('#templateEditPop').append(out);
+	$('#editTemplateProperty').modal('show');
 };

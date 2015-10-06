@@ -456,9 +456,9 @@ body {
 		</div>
 
 	</div>
-<!-- model to change type property values -->
-<div class="modal fade" id="editTypeProperty" tabindex="-1" role="dialog"
-		data-backdrop="static" aria-labelledby="myModalLabel"
+	<!-- model to change type property values -->
+	<div class="modal fade" id="editTypeProperty" tabindex="-1"
+		role="dialog" data-backdrop="static" aria-labelledby="myModalLabel"
 		aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -469,22 +469,70 @@ body {
 				</div>
 				<div class="modal-body">
 
-					<div id="typeEditPop" >
-					
-					</div>
+					<div id="typeEditPop"></div>
 					<div id="InfoMsg" style="color: red;"></div>
 
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary pull-left "
-						data-dismiss="modal" id="updatePriority"
-						onclick="changePriority()">Submit</button>
+						data-dismiss="modal" id="updateType">Submit</button>
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- 	edit group properties model -->
+	<div class="modal fade" id="editGroupProperty" tabindex="-1"
+		role="dialog" data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Edit Group
+						Priorities</h4>
+				</div>
+				<div class="modal-body">
 
+					<div id="groupEditPop"></div>
+					<div id="InfoMsg" style="color: red;"></div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-left "
+						data-dismiss="modal" id="updateGroup">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- template property edit model -->
+		<div class="modal fade" id="editTemplateProperty" tabindex="-1"
+		role="dialog" data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Edit Template
+						Priorities</h4>
+				</div>
+				<div class="modal-body">
+
+					<div id="templateEditPop"></div>
+					<div id="InfoMsg" style="color: red;"></div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-left "
+						data-dismiss="modal" id="updateTemplate">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- here starts the  gateway matching model -->
 	<!-- Modal -->
@@ -701,7 +749,9 @@ reformat when cleaning code -->
 	<script src="../js/SystemJS/SystemTables.js"></script>
 	<script src="../js/gatewayJS/GatewayTables.js"></script>
 	<script src="../js/SystemJS/sys_edit.js"></script>
-
+	<script src="../js/templateJS/firstTemplateTableJSON.js"></script>
+	<script src="../js/templateJS/secondTemplateJSON.js"></script>
+	<script src="../js/templateJS/thirdTableJSON.js"></script>
 
 
 </body>
