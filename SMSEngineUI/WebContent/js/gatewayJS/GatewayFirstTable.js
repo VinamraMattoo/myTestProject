@@ -14,6 +14,7 @@ $(document).ready(function() {
 	xmlhttp.send();
 
 });
+
 var Jsonarr;
 function populateFirstGatewayTable(response) {
 	var arr = JSON.parse(response);
@@ -24,10 +25,10 @@ function populateFirstGatewayTable(response) {
 	var priorityArr = [];
 
 	out += "<table data-height=\" 300\" data-search-time-out=\"1\""
-			+ "data-striped=\" true\" data-toggle=\"table\" data-search=\"true\""
+			+ "data-striped=\" true\" class=\"table\" data-search=\"true\""
 			+ "data-click-to-select=\"true\">" + "<thead><tr>"
-			+ "<th>Groups</th>" + "<th><button class=\"btn btn-success btn-sm\">MGAGE</button></th>" + "<th><button class=\"btn btn-success btn-sm\">SECGW</button></th>"
-			+ "<th><button class=\"btn btn-success btn-sm\">THGW</button></th>" + "<th><button class=\"btn btn-success btn-sm\">FORTHGW</button></th></thead><tbody>";
+			+ "<th><h2>Groups</h2></th>" + "<th><button id=\"gw1\" onclick=\"call_gw_property_edit()\" class=\"btn btn-success \">MGAGE <i class=\"glyphicon glyphicon-cog gly-spin\"></i></button></th>" + "<th><button onclick=\"call_gw_property_edit()\" id=\"gw2\" class=\"btn btn-success \">SECGW  <i class=\"glyphicon glyphicon-cog gly-spin\"></i></button></th>"
+			+ "<th><button id=\"gw3\" onclick=\"call_gw_property_edit()\" class=\"btn btn-success \">THGW  <i class=\"glyphicon glyphicon-cog gly-spin\"></i></button></th>" + "<th><button onclick=\"call_gw_property_edit()\" id=\"gw4\" class=\"btn btn-success \">FORTHGW  <i class=\"glyphicon glyphicon-cog gly-spin\"></i></button></th></thead><tbody>";
 
 	for (var i = 0; i < arr.length; i++) {
 		out += "<tr><td>" + arr[i].name + "</td>";
@@ -103,4 +104,11 @@ function changePriority() {
 			+ "<span class=\"glyphicon glyphicon-edit\" onclick=\"closefun("
 			+ i + "," + j + ")\" id=\"close\"></span>";
 };
-
+$(document).ready(function(){
+    $("#gw1").click(function(){
+        alert("The paragraph was clicked.");
+    });
+});
+function call_gw_property_edit(){
+	alert("hello");
+};
