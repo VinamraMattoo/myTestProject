@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	var xmlhttp = new XMLHttpRequest();
-	var url = "http://localhost:8082/TestSmsServerProject/TemplateConfig";
+	var url = "../JSON/templateJSON.txt";
 
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
