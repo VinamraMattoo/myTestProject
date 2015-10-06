@@ -7,8 +7,7 @@ $(document).ready(function() {
 
 			populateFirstGatewayTable(xmlhttp.responseText);
 
-		} else
-			alert("Not loading");
+		} 
 	}
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();

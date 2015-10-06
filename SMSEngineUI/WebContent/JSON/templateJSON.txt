@@ -1,43 +1,125 @@
 [
     {
         "id": 1,
-        "name": "Appointment Scheduled",
-        "desc": "sms group description goes here..",
+        "name": "Sales",
+        "desc": "description",
         "cpContentMatchType": "ABSOLUTE_PERIOD",
-        "cpContentMatchValue": 1313,
+        "cpContentMatchValue": 300,
         "cpTypeMatchType": "CALENDAR_DAY",
         "cpTypeMatchValue": 2,
-        "gwPriorities": [
+        "expiresIn": 15,
+        "smsGroupVOs": [
             {
                 "id": 1,
-                "name": "MGAGE",
-                "priority": 1
+                "name": "Appointment summary",
+                "desc": "description",
+                "cpContentMatchType": "ABSOLUTE_PERIOD",
+                "cpContentMatchValue": 300,
+                "cpTypeMatchType": "CALENDAR_DAY",
+                "cpTypeMatchValue": 2,
+                "isBulk": false,
+                "priority": 2,
+                "smsTemplateVOs": [
+                    {
+                        "id": 1,
+                        "name": "patient_lead_sms",
+                        "retryCount": 2,
+                        "messageExpiry": 30
+                    },
+                    {
+                        "id": 2,
+                        "name": "physio_lead_sms",
+                        "retryCount": 2,
+                        "messageExpiry": 50
+                    }
+                ]
             },
             {
                 "id": 2,
-                "name": "SECGW",
-                "priority": 4
+                "name": "Report summary",
+                "desc": "description",
+                "cpContentMatchType": "ABSOLUTE_PERIOD",
+                "cpContentMatchValue": 300,
+                "cpTypeMatchType": "CALENDAR_DAY",
+                "cpTypeMatchValue": 2,
+                "isBulk": false,
+                "priority": 2,
+                "smsTemplateVOs": [
+                    {
+                        "id": 1,
+                        "name": "home_lead_sms",
+                        "retryCount": 2,
+                        "messageExpiry": 88
+                    },
+                    {
+                        "id": 2,
+                        "name": "office_lead_sms",
+                        "retryCount": 2,
+                        "messageExpiry": 70
+                    }
+                ]
             }
         ]
     },
     {
         "id": 2,
-        "name": "Payment Recieved",
-        "desc": "sms group description goes here..",
+        "name": "Marketing",
+        "desc": "description",
         "cpContentMatchType": "ABSOLUTE_PERIOD",
-        "cpContentMatchValue": 2121,
+        "cpContentMatchValue": 300,
         "cpTypeMatchType": "CALENDAR_DAY",
         "cpTypeMatchValue": 2,
-        "gwPriorities": [
+        "expiresIn": 15,
+        "smsGroupVOs": [
             {
-                "id": 1,
-                "name": "MGAGE",
-                "priority": 2
+                "id": 4,
+                "name": "Pol summary",
+                "desc": "description",
+                "cpContentMatchType": "ABSOLUTE_PERIOD",
+                "cpContentMatchValue": 300,
+                "cpTypeMatchType": "CALENDAR_DAY",
+                "cpTypeMatchValue": 2,
+                "isBulk": false,
+                "priority": 2,
+                "smsTemplateVOs": [
+                    {
+                        "id": 1,
+                        "name": "Temp_name",
+                        "retryCount": 2,
+                        "messageExpiry": 30
+                    },
+                    {
+                        "id": 2,
+                        "name": "temp_lead_sms",
+                        "retryCount": 2,
+                        "messageExpiry": 50
+                    }
+                ]
             },
             {
-                "id": 1,
-                "name": "THGW",
-                "priority": 3
+                "id": 5,
+                "name": "Req summary",
+                "desc": "description",
+                "cpContentMatchType": "ABSOLUTE_PERIOD",
+                "cpContentMatchValue": 300,
+                "cpTypeMatchType": "CALENDAR_DAY",
+                "cpTypeMatchValue": 2,
+                "isBulk": false,
+                "priority": 2,
+                "smsTemplateVOs": [
+                    {
+                        "id": 1,
+                        "name": "nursing_lead_sms",
+                        "retryCount": 2,
+                        "messageExpiry": 88
+                    },
+                    {
+                        "id": 2,
+                        "name": "WFM_lead_sms",
+                        "retryCount": 2,
+                        "messageExpiry": 70
+                    }
+                ]
             }
         ]
     }
