@@ -456,6 +456,35 @@ body {
 		</div>
 
 	</div>
+<!-- model to change type property values -->
+<div class="modal fade" id="editTypeProperty" tabindex="-1" role="dialog"
+		data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Edit Type Priorities</h4>
+				</div>
+				<div class="modal-body">
+
+					<div id="typeEditPop" >
+					
+					</div>
+					<div id="InfoMsg" style="color: red;"></div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-left "
+						data-dismiss="modal" id="updatePriority"
+						onclick="changePriority()">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 	<!-- here starts the  gateway matching model -->
 	<!-- Modal -->

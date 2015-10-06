@@ -8,16 +8,17 @@ $(document).ready(function() {
 			populateSecondTemplateTable(xmlhttp.responseText);
 			populateThirdTemplateTable(xmlhttp.responseText);
 		}
-		
+
 	}
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
 
 });
-
+var JsonArray;
 function populateFirstTemplateTable(response) {
 	var arr = JSON.parse(response);
 	var out;
+	JsonArray=arr;
 
 	out += " <table id=\"firstTempTable\" data-height=\" 300\" data-search-time-out=\"1\""
 			+ "data-striped=\" true\""
@@ -25,13 +26,14 @@ function populateFirstTemplateTable(response) {
 			+ "<thead>"
 			+ "<tr>"
 			+ "<th data-sortable=\"true\">Types</th>"
-			+ "<th>Options</th></tr></thead>"
-			+ "<tbody>";
+			+ "<th>Options</th></tr></thead>" + "<tbody>";
 
 	for (var i = 0; i < arr.length; i++) {
 
-		out += "<tr>" + "<td><strong>" + arr[i].name
-		+"</strong></td><td><button onclick=\"EditTypeProp()\">Edit</td></tr>";
+		out += "<tr>"
+				+ "<td><strong>"
+				+ arr[i].name
+				+ "</strong></td><td><button class=\"btn btn-primary btn-sm\" onclick=\"EditTypeProp("+arr[i].name+")\">Edit</td></tr>";
 
 	}
 
@@ -40,7 +42,15 @@ function populateFirstTemplateTable(response) {
 	$("#TemplateFirstTable").append(out);
 
 };
-function EditTypeProp()
-{
-	alert("comin here");
+function EditTypeProp(id) {
+	var arr=JsonArray;
+	var out;
+	for (var i = 0; i < arr.length; i++) {
+	if(id==arr[i].name)
+	{
+		out+="<input >"
+	}
+	typeEditPop.append;
+	}
+	editTypeProperty.show();
 };
