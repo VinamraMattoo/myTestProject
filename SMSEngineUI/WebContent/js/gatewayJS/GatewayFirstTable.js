@@ -22,7 +22,7 @@ function populateFirstGatewayTable(response) {
 	var flag = 1;
 	var priorityArr = [];
 
-	out += "<table data-height=\" 300\" data-search-time-out=\"1\""
+	out += "<table data-height=\" 300\" data-search-time-out=\"500\""
 			+ "data-striped=\" true\" class=\"table\" data-search=\"true\""
 			+ "data-click-to-select=\"true\">"
 			+ "<thead><tr>"

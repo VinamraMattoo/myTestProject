@@ -48,7 +48,31 @@ function EditTypeProp(id) {
 	for (var i = 0; i < arr.length; i++) {
 	if(id==arr[i].name)
 	{
-		out+="<input >"
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		out+="<div class=\"typifields\">"
+			+"<input type=\"hidden\" name=\"id\" value=\"1\"> <select"
+			+"class=\"form-control text-center\" name=\"cpContentMatchType\">"
+			+"<option value=\"CALENDAR_DAY\">CALENDAR DAY</option>"
+			+"<option value=\"ABSOLUTE_PERIOD\" selected>ABSOLUTE PERIOD</option>"
+			+"</select> <input type=\"text\" name=\"cpContentMatchValue\" value=\"150\"> <select"
+			+"class=\"form-control text-center\" name=\"cpTypeMatchType\">"
+			+"<option value=\"CALENDAR_DAY\">CALENDAR DAY</option>"
+			+"<option value=\"ABSOLUTE_PERIOD\" selected>ABSOLUTE PERIOD</option>"
+			+"</select> <input type=\"hidden\" name=\"cpTypeMatchValue\" value=\"1\"> <br />"
+			+"</div>"
+	
+	
+	
+	
+	
 	}
 	typeEditPop.append;
 	}
