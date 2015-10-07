@@ -62,6 +62,6 @@ function EditTemplateProp(tid, gid, templId) {
 			}
 		}
 	}
-	$('#templateEditPop').append(out);
+	$('#templateEditPop').empty().append(out);
 	$('#editTemplateProperty').modal('show');
 };

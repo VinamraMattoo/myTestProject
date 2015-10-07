@@ -1,4 +1,4 @@
-$('#updateGroup').submit(function(){
+$('#updateGroup').click(function(){
 		var data = $(".grpfield").map(function(){
 		return{
 			

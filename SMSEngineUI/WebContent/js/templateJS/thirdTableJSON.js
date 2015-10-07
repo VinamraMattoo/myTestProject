@@ -1,4 +1,4 @@
-$("#updateTemplate").submit(function(){
+$("#updateTemplate").click(function(){
 	var data = $(".tempfield").map(function(){
 		return{
 			id:$(this).find('[name="id"]').val(),
