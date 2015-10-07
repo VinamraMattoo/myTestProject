@@ -115,12 +115,6 @@ body {
 						style="color: #ffffff">Gateway Configurations <i
 							class="glyphicon glyphicon-cog gly-spin"></i></strong></a>
 					<ul id="demo1" class="collapse">
-						<li><button class="btn btn-link" data-toggle="modal"
-								data-target="#GatewayMatching"
-								style="padding-right: 70px; border-left-width: 1px; padding-left: 15px; text-decoration: none; color: #ffffff">
-
-								Update Gateway Configurations</button></li>
-
 					</ul></li>
 
 				<li><a href="javascript:;" data-toggle="collapse"
@@ -469,7 +463,9 @@ body {
 				</div>
 				<div class="modal-body">
 
-					<div id="typeEditPop"></div>
+					<div id="typeEditPop">
+						<input type="hidden" name="temp" value=temp />
+					</div>
 					<div id="InfoMsg" style="color: red;"></div>
 
 				</div>
@@ -534,141 +530,7 @@ body {
 		</div>
 	</div>
 
-	<!-- here starts the  gateway matching model -->
-	<!-- Modal -->
-	<div class="modal fade" id="GatewayMatching" role="dialog"
-		data-backdrop="static" aria-labelledby="myModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog">
 
-
-
-			<!-- Modal content-->
-			<div style="background-color: #3fc1be; width: 700px; height: 600px;"
-				class="modal-content col-md-12 col-lg-12 col-sm-12">
-
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-
-					<img style="background-position: center;"
-						src="../images/portea.png" width="200">
-
-				</div>
-
-
-				<div class="modal-body" style="height: 500px;" id="CancelLoading">
-					<div class="col-md-3" id="gatewayFirstTable">
-						<h2 style="text-align: center; font-size: 30px;">Groups</h2>
-						<br> <br>
-					</div>
-
-					<div class="col-md-3 col-md-offset-5">
-						<div>
-							<h1 style="font-size: 300%; text-align: center;">Gateways</h1>
-						</div>
-						<table style="background-color: white" data-toggle="table">
-							<thead>
-								<tr>
-									<th>Gateways</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>gateway 1</td>
-									<td><input type="checkbox" class="radio"
-										onclick=gatewaySelection(1) name="gateway"></td>
-								</tr>
-								<tr>
-									<td>gateway 2</td>
-									<td><input type="checkbox" class="radio"
-										onclick=gatewaySelection(2) name="gateway"></td>
-								</tr>
-								<tr>
-									<td>gateway 3</td>
-									<td><input type="checkbox" class="radio"
-										onclick=gatewaySelection(3) name="gateway"></td>
-								</tr>
-								<tr>
-									<td>gateway 4</td>
-									<td><input type="checkbox" class="radio"
-										onclick=gatewaySelection(4) name="gateway"></td>
-								</tr>
-
-
-							</tbody>
-						</table>
-					</div>
-					<br> <br>
-					<div class="col-md-offset-4">
-						<input type=text id="priority" name="priority"
-							placeholder="type priority">
-						<button class="btn btn-primary"
-							onclick="mapGroupToGateway(document.getElementById('priority').value)">
-							<!-- onclick="alert('linking the data')"> -->
-
-							Link
-						</button>
-
-					</div>
-					<hr size="300">
-					<div>
-						<h1 style="font-size: 200%; text-align: center;">Gateway
-							mappings</h1>
-					</div>
-
-					<table data-toggle="table" style="background-color: white">
-						<thead>
-							<tr>
-								<th data-field="state" data-checkbox="true"></th>
-								<th>Groups</th>
-								<th>gateway 1</th>
-								<th>gateway 2</th>
-								<th>gateway 3</th>
-								<th>gateway 4</th>
-								<th data-field="operate" data-formatter="operateFormatter2"
-									data-events="operateEvents2">Options</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td></td>
-								<td>group 1</td>
-								<td>1</td>
-								<td>2</td>
-								<td>3</td>
-								<td>4</td>
-							</tr>
-
-
-						</tbody>
-					</table>
-				</div>
-
-			</div>
-			<div class="modal-footer" style="display: none"></div>
-		</div>
-
-	</div>
-	<!-- here goes the  delete  button 
-------------------------------------------------------------------------
-------------------------------------------------------------------------
--------------------------------------------------------------------------
-reformat when cleaning code -->
-
-
-	<!-- ends here-------------
-	-
------------------------------
--
--------------------------- -->
-
-
-
-
-
-
-	<!-- here  it stops -->
 	<!--  footer starts  here -->
 	<!-- <footer class="web-footer">
 		<div class="container">
@@ -712,22 +574,8 @@ reformat when cleaning code -->
 	<div id="bodyId" class="container"></div>
 
 
-	<script>
-		function operateFormatter2(value, row, index) {
-			return [ '<center><button class="btn btn-sm btn-success title delete">Delete</button></center>' ]
-					.join('');
-		}
 
-		window.operateEvents2 = {
-
-			'click .edit' : function(e, value, row, index) {
-				alert('You click delete icon, row: ' + JSON.stringify(row));
-				console.log(value, row, index);
-			},
-
-		};
-	</script>
-	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script
 		src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.js"></script>
 	<script

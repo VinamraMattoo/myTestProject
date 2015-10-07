@@ -53,9 +53,9 @@ function EditTemplateProp(tid, gid, templId) {
 
 					out += "<div class=\"tempfield\">"
 							+ "<input type=\"hidden\"class=\"form-control\" name=\"id\" value="+ templId +">"
-							+ "<input type=\"hidden\" name=\"patient_lead_sms\" value="+arr[i].smsGroupVOs[j].smsTemplateVOs[k].name+"> <br />"
+							+ "<label name=\"name\" >" + arr[i].smsGroupVOs[j].smsTemplateVOs[k].name +"</label> <br />"
 							+ "<input type=\"text\" class=\"form-control\" name=\"retryCount\" value="+arr[i].smsGroupVOs[j].smsTemplateVOs[k].retryCount+"> <br />"
-							+ "<input type=\"text\" class=\"form-control\"	name=\"messageExpiry\" value="+arr[i].smsGroupVOs[j].smsTemplateVOs[k].retryCount+">"
+							+ "<label style=\"font-size:120%\"><strong>Enter the retry count here</strong></label><br/><br/><input type=\"text\" class=\"form-control\"	name=\"messageExpiry\" value="+arr[i].smsGroupVOs[j].smsTemplateVOs[k].retryCount+">"
 							+ "</div>";
 
 				}

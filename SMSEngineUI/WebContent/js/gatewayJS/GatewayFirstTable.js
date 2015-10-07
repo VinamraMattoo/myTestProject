@@ -8,6 +8,9 @@ $(document).ready(function() {
 			populateFirstGatewayTable(xmlhttp.responseText);
 
 		}
+		else{
+			confirm("continue on this site ?");
+		}
 	}
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();

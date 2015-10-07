@@ -53,37 +53,37 @@ function EditTypeProp(id) {
 					+ "<input type=\"hidden\" name=\"id\" value=" + id + ">";
 
 			if (arr[i].cpContentMatchType == "ABSOLUTE_PERIOD") {
-				out += "<select "
+				out += "<label style=\"font-size:120%\"><strong>select the content match type</strong></label><br/><br/><select "
 						+ "class=\"form-control text-center\" name=\"cpContentMatchType\">"
-						+ "<option value=\"CALENDAR_DAY\">CALENDAR DAY</option>"
-						+ "<option value=\"ABSOLUTE_PERIOD\" selected>ABSOLUTE PERIOD</option>"
+						+ "<option value=\"CALENDAR_DAY\"><strong>CALENDAR DAY</strong></option>"
+						+ "<option value=\"ABSOLUTE_PERIOD\" selected><strong>ABSOLUTE PERIOD</strong></option>"
 						+ "</select>";
 			} else {
-				out += "<select "
+				out += "<label style=\"font-size:120%\"><strong>select the content match type</strong></label><br/><br/><select "
 						+ "class=\"form-control text-center\" name=\"cpContentMatchType\">"
-						+ "<option value=\"CALENDAR_DAY\" selected>CALENDAR DAY</option>"
-						+ "<option value=\"ABSOLUTE_PERIOD\" >ABSOLUTE PERIOD</option>"
+						+ "<option value=\"CALENDAR_DAY\" selected><strong>CALENDAR DAY</strong></option>"
+						+ "<option value=\"ABSOLUTE_PERIOD\" ><strong>ABSOLUTE PERIOD</strong></option>"
 						+ "</select>";
 			}
 
-			out += " <input type=\"text\" class=\"form-control\" name=\"cpContentMatchValue\" value="
+			out += " <label style=\"font-size:120%\"><strong>Enter the content match value</strong></label><br/><br/><input type=\"text\" class=\"form-control\" name=\"cpContentMatchValue\" value="
 					+ arr[i].cpContentMatchValue + ">";
 
 			if (arr[i].cpTypeMatchType == "ABSOLUTE_PERIOD") {
-				out += " <select "
+				out += " <label style=\"font-size:120%\"><strong>select the type match type</strong></label><br/><br/><select "
 						+ "class=\"form-control text-center\" name=\"cpTypeMatchType\">"
 						+ "<option value=\"CALENDAR_DAY\">CALENDAR DAY</option>"
 						+ "<option value=\"ABSOLUTE_PERIOD\" selected>ABSOLUTE PERIOD</option>"
 						+ "</select>";
 			} else {
-				out += " <select "
+				out += " <label style=\"font-size:120%\"><strong>select the type match type</strong></label><br/><br/><select "
 						+ "class=\"form-control text-center\" name=\"cpTypeMatchType\">"
 						+ "<option value=\"CALENDAR_DAY\"selected>CALENDAR DAY</option>"
 						+ "<option value=\"ABSOLUTE_PERIOD\" >ABSOLUTE PERIOD</option>"
 						+ "</select>";
 			}
 
-			out += " <input type=\"text\" class=\"form-control\" name=\"cpTypeMatchValue\" value="
+			out += " <label style=\"font-size:120%\"><strong>Enter the type match value</strong></label><br/><br/><input type=\"text\" class=\"form-control\" name=\"cpTypeMatchValue\" value="
 					+ arr[i].cpTypeMatchValue + ">";
 			+"</div>";
 
