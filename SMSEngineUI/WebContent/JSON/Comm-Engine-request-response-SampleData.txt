@@ -257,7 +257,7 @@ response :
 -- UPDATE --
 
 request :
-    description : Update group data.
+    description : Update template data.
     Method : PUT
     URL : /admin/templates
     input example :

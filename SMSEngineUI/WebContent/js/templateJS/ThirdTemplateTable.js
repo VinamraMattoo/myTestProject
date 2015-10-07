@@ -52,10 +52,10 @@ function EditTemplateProp(tid, gid, templId) {
 						&& templId == arr[i].smsGroupVOs[j].smsTemplateVOs[k].id) {
 
 					out += "<div class=\"tempfield\">"
-							+ "<input type=\"hidden\" name=\"id\" value=\"1\">"
-							+ "<label name=\"name\">patient_lead_sms</label>"
-							+ "<input type=\"text\" name=\"retryCount\" value=1> <br />"
-							+ "<input type=\"text\"	name=\"messageExpiry\" value=3>"
+							+ "<input type=\"hidden\" name=\"id\" value="+ templId +">"
+							+ "<input type=\"hidden\" name=\"patient_lead_sms\" value="+arr[i].smsGroupVOs[j].smsTemplateVOs[k].name+"> <br />"
+							+ "<input type=\"text\" name=\"retryCount\" value="+arr[i].smsGroupVOs[j].smsTemplateVOs[k].retryCount+"> <br />"
+							+ "<input type=\"text\"	name=\"messageExpiry\" value="+arr[i].smsGroupVOs[j].smsTemplateVOs[k].retryCount+">"
 							+ "</div>";
 
 				}
