@@ -50,7 +50,7 @@ function EditTypeProp(id) {
 		if (id == arr[i].id) {
 
 			out += "<div class=\"typifields\">"
-					+ "<input type=\"hidden\" name=\"id\" value=" + id + "/>";
+					+ "<input type=\"hidden\" name=\"id\" value=" + id + ">";
 
 			if (arr[i].cpContentMatchType == "ABSOLUTE_PERIOD") {
 				out += "<select "

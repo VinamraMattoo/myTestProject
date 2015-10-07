@@ -58,7 +58,7 @@ function EditGroupProp(tid, gid) {
 				}
 
 				out += "</select>"
-						+ "<input type=\"text\" name=\"cpTypeMatchValue\" value=\""
+						+ "<input type=\"text\" class=\"form-control\" name=\"cpTypeMatchValue\" value=\""
 						+ arr[i].smsGroupVOs[j].cpTypeMatchValue
 						+ "\">"
 						+ "<select "
@@ -73,7 +73,7 @@ function EditGroupProp(tid, gid) {
 				}
 
 				out += "</select>"
-						+ "<input type=\"text\"	 name=\"priority\" value=\""
+						+ "<input type=\"text\" class=\"form-control\"	 name=\"priority\" value=\""
 						+ arr[i].smsGroupVOs[j].priority + "\">" + "</div>";
 
 			}
