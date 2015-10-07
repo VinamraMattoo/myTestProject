@@ -508,7 +508,7 @@ body {
 		</div>
 	</div>
 	<!-- template property edit model -->
-		<div class="modal fade" id="editTemplateProperty" tabindex="-1"
+	<div class="modal fade" id="editTemplateProperty" tabindex="-1"
 		role="dialog" data-backdrop="static" aria-labelledby="myModalLabel"
 		aria-hidden="true">
 		<div class="modal-dialog">
@@ -549,9 +549,10 @@ body {
 
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<center>
-						<img src="../images/portea.png" width="200">
-					</center>
+
+					<img style="background-position: center;"
+						src="../images/portea.png" width="200">
+
 				</div>
 
 
@@ -562,9 +563,9 @@ body {
 					</div>
 
 					<div class="col-md-3 col-md-offset-5">
-						<center>
-							<h1 style="font-size: 300%">Gateways</h1>
-						</center>
+						<div>
+							<h1 style="font-size: 300%; text-align: center;">Gateways</h1>
+						</div>
 						<table style="background-color: white" data-toggle="table">
 							<thead>
 								<tr>
@@ -611,10 +612,11 @@ body {
 
 					</div>
 					<hr size="300">
+					<div>
+						<h1 style="font-size: 200%; text-align: center;">Gateway
+							mappings</h1>
+					</div>
 
-					<center>
-						<h1 style="font-size: 200%">Gateway mappings</h1>
-					</center>
 					<table data-toggle="table" style="background-color: white">
 						<thead>
 							<tr>
@@ -752,7 +754,6 @@ reformat when cleaning code -->
 	<script src="../js/templateJS/firstTemplateTableJSON.js"></script>
 	<script src="../js/templateJS/secondTemplateJSON.js"></script>
 	<script src="../js/templateJS/thirdTableJSON.js"></script>
-
 
 </body>
 </html>

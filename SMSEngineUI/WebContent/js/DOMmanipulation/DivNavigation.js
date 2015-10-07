@@ -17,7 +17,7 @@ $('#TemplateConfig').click(function() {
 	$("#TemplateThirdTable").empty();
 });
 
-var DivIdArray = [ "systemConfig", "gatewayConfig", "templateConfig"/* ,"updateSystem" */];
+var DivIdArray = [ "systemConfig", "gatewayConfig", "templateConfig"];
 
 var FormIdArray = [ "updateTemplate" ];
 

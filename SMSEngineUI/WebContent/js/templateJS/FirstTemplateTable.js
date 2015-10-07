@@ -40,7 +40,7 @@ function populateFirstTemplateTable(response) {
 
 	out += "</tbody>" + "</table>";
 
-	$("#TemplateFirstTable").html(out);
+	$('#TemplateFirstTable').html(out);
 
 };
 function EditTypeProp(id) {
