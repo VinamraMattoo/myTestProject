@@ -1,6 +1,7 @@
-$("#updateGroup").submit(function(){
-	var data = $(".grpfield").map(function(){
+$('#updateGroup').submit(function(){
+		var data = $(".grpfield").map(function(){
 		return{
+			
 			id:$(this).find('[name="id"]').val(),
 			
 			cpTypeMatchType: $(this).find('[name="cpTypeMatchType"]').val(),

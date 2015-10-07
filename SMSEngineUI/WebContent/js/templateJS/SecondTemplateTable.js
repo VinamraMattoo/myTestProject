@@ -36,7 +36,6 @@ function populateSecondTemplateTable(response) {
 
 };
 function EditGroupProp(tid, gid) {
-	alert("comin here");
 	var arr = JsonArray;
 	var out;
 	for (var i = 0; i < arr.length; i++) {
@@ -44,11 +43,13 @@ function EditGroupProp(tid, gid) {
 			if (arr[i].id == tid && arr[i].smsGroupVOs[j].id == gid) {
 
 				out += "<div class=\"grpfield\">"
-						+ "<input type=\"hidden\" name=\"id\" value=\"1\">"
+						+ "<input type=\"hidden\" name=\"id\" value="
+						+ gid
+						+ ">"
 						+ "<select "
 						+ "class=\"form-control text-center\" name=\"cpTypeMatchType\">";
 
-				if (arr[i].smsGroupVOs[j].cpContentMatchType == "ABSOLUTE_PERIOD") {
+				if (arr[i].smsGroupVOs[j].cpTypeMatchType == "ABSOLUTE_PERIOD") {
 					out += "<option value=\"CALENDAR_DAY\">Calender Day</option>"
 							+ "<option value=\"ABSOLUTE_PERIOD\" selected>ABSOLUTE PERIOD</option>";
 				} else {
@@ -57,25 +58,28 @@ function EditGroupProp(tid, gid) {
 				}
 
 				out += "</select>"
-						+ "<input type=\"hidden\" name=\"cpContentMatchValue\" value=\"1\"> <br />"
-						+ "<input type=\"text\" value=\""
-						+ arr[i].smsGroupVOs[j].cpContentMatchValue
+						+ "<input type=\"text\" name=\"cpTypeMatchValue\" value=\""
+						+ arr[i].smsGroupVOs[j].cpTypeMatchValue
 						+ "\">"
-						+ "<input type=\"hidden\" name=\"cpTypeMatchType\" value=\"1\"> <br />"
 						+ "<select "
-						+ "class=\"form-control text-center\" name=\"is_bulk\">"
-						+ "<option value=\"true\">bulk</option>"
-						+ "<option value=\"false\" selected>singular</option>"
-						+ "</select>"
-						+ "<input type=\"hidden\" name=\"cpTypeMatchValue\" value=\"1\"> <br />"
-						+ "<input type=\"text\"	name=\"priority\" value=\""
-						+ arr[i].smsGroupVOs[j].cpTypeMatchValue + "\">"
-						+ "</div>";
+						+ "class=\"form-control text-center\" name=\"is_bulk\">";
+
+				if (arr[i].smsGroupVOs[j].is_bulk == "true") {
+					out += "<option value=\"true\" selected>bulk</option>"
+							+ "<option value=\"false\" >singular</option>";
+				} else {
+					out += "<option value=\"true\" >bulk</option>"
+							+ "<option value=\"false\" selected>singular</option>";
+				}
+
+				out += "</select>"
+						+ "<input type=\"text\"	 name=\"priority\" value=\""
+						+ arr[i].smsGroupVOs[j].priority + "\">" + "</div>";
 
 			}
 		}
 	}
-	$('#groupEditPop').append(out);
+	$('#groupEditPop').empty().append(out);
 
 	$('#editGroupProperty').modal('show');
 

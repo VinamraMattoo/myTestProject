@@ -16,9 +16,9 @@
                 "cpContentMatchType": "ABSOLUTE_PERIOD",
                 "cpContentMatchValue": 300,
                 "cpTypeMatchType": "CALENDAR_DAY",
-                "cpTypeMatchValue": 2,
+                "cpTypeMatchValue": 4,
                 "isBulk": false,
-                "priority": 2,
+                "priority": 3,
                 "smsTemplateVOs": [
                     {
                         "id": 1,
@@ -43,7 +43,7 @@
                 "cpTypeMatchType": "CALENDAR_DAY",
                 "cpTypeMatchValue": 2,
                 "isBulk": false,
-                "priority": 2,
+                "priority": 5,
                 "smsTemplateVOs": [
                     {
                         "id": 1,
@@ -66,9 +66,9 @@
         "name": "Marketing",
         "desc": "description",
         "cpContentMatchType": "ABSOLUTE_PERIOD",
-        "cpContentMatchValue": 300,
+        "cpContentMatchValue": 600,
         "cpTypeMatchType": "CALENDAR_DAY",
-        "cpTypeMatchValue": 2,
+        "cpTypeMatchValue": 4,
         "expiresIn": 15,
         "smsGroupVOs": [
             {
@@ -78,9 +78,9 @@
                 "cpContentMatchType": "ABSOLUTE_PERIOD",
                 "cpContentMatchValue": 300,
                 "cpTypeMatchType": "CALENDAR_DAY",
-                "cpTypeMatchValue": 2,
+                "cpTypeMatchValue": 8,
                 "isBulk": false,
-                "priority": 2,
+                "priority": 1,
                 "smsTemplateVOs": [
                     {
                         "id": 1,
@@ -103,7 +103,7 @@
                 "cpContentMatchType": "ABSOLUTE_PERIOD",
                 "cpContentMatchValue": 300,
                 "cpTypeMatchType": "CALENDAR_DAY",
-                "cpTypeMatchValue": 2,
+                "cpTypeMatchValue": 12,
                 "isBulk": false,
                 "priority": 2,
                 "smsTemplateVOs": [
