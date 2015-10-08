@@ -10,7 +10,7 @@ $(document)
 							myFunction2(xmlhttp.responseText);
 							myFunction3(xmlhttp.responseText);
 						}
-					}
+					};
 					xmlhttp.open("GET", url, true);
 					xmlhttp.send();
 

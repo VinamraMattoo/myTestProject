@@ -9,7 +9,7 @@ $(document).ready(function() {
 			populateThirdTemplateTable(xmlhttp.responseText);
 		}
 
-	}
+	};
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
 

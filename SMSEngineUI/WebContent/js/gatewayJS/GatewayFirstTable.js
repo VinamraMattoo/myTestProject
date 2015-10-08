@@ -7,10 +7,10 @@ $(document).ready(function() {
 
 			populateFirstGatewayTable(xmlhttp.responseText);
 
-		} else {
-			alert("come")
 		}
-	}
+		else
+			alert("why?");
+	};
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
 

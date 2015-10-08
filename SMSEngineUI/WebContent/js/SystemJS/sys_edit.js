@@ -7,4 +7,5 @@ var data = $('.sys_input_fields').map(function() {
     };
 }).get();
 alert(JSON.stringify(data));
+callme123();
 });
