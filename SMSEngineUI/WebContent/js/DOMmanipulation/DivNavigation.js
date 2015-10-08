@@ -30,7 +30,7 @@ function myFunction() {
 		x = "You pressed Cancel!";
 	}
 	document.getElementById("demo").innerHTML = x;
-};
+}
 
 function displayUpdate(ElementId) {
 	var div = document.getElementById(ElementId);

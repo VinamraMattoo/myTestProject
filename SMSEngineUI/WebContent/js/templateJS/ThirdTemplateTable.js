@@ -39,7 +39,7 @@ function populateThirdTemplateTable(response) {
 			}
 		}
 	}
-	out += "</tbody></table>"
+	out += "</tbody></table>";
 	$("#TemplateThirdTable1").append(out);
 };
 function EditTemplateProp(tid, gid, templId) {
@@ -48,15 +48,23 @@ function EditTemplateProp(tid, gid, templId) {
 	for (var i = 0; i < arr.length; i++) {
 		for (var j = 0; j < arr[i].smsGroupVOs.length; j++) {
 			for (var k = 0; k < arr[i].smsGroupVOs[j].smsTemplateVOs.length; k++) {
-				if (tid == arr[i].id && gid == arr[i].smsGroupVOs[j].id
+				if (tid == arr[i].id
+						&& gid == arr[i].smsGroupVOs[j].id
 						&& templId == arr[i].smsGroupVOs[j].smsTemplateVOs[k].id) {
 
 					out += "<div class=\"tempfield\">"
-							+ "<input type=\"hidden\"class=\"form-control\" name=\"id\" value="+ templId +">"
-							+ "<input type=\"hidden\" name=\"patient_lead_sms\" value="+arr[i].smsGroupVOs[j].smsTemplateVOs[k].name+"> <br />"
-							+ "<input type=\"text\" class=\"form-control\" name=\"retryCount\" value="+arr[i].smsGroupVOs[j].smsTemplateVOs[k].retryCount+"> <br />"
-							+ "<input type=\"text\" class=\"form-control\"	name=\"messageExpiry\" value="+arr[i].smsGroupVOs[j].smsTemplateVOs[k].retryCount+">"
-							+ "</div>";
+							+ "<input type=\"hidden\"class=\"form-control\" name=\"id\" value="
+							+ templId
+							+ ">"
+							+ "<input type=\"hidden\" name=\"patient_lead_sms\" value="
+							+ arr[i].smsGroupVOs[j].smsTemplateVOs[k].name
+							+ "> <br />"
+							+ "<input type=\"text\" class=\"form-control\" name=\"retryCount\" value="
+							+ arr[i].smsGroupVOs[j].smsTemplateVOs[k].retryCount
+							+ "> <br />"
+							+ "<input type=\"text\" class=\"form-control\"	name=\"messageExpiry\" value="
+							+ arr[i].smsGroupVOs[j].smsTemplateVOs[k].retryCount
+							+ ">" + "</div>";
 
 				}
 			}

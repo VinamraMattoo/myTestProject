@@ -37,7 +37,7 @@ $(document)
 
 						out += "</table>";
 
-						$('#gatewayPanel1').append(out)
+						$('#gatewayPanel1').append(out);
 					}
 
 					function myFunction2(response) {
@@ -63,7 +63,7 @@ $(document)
 
 						out += "</table>";
 
-						$('#gatewayPanel2').append(out)
+						$('#gatewayPanel2').append(out);
 					}
 
 					function myFunction3(response) {
@@ -89,7 +89,7 @@ $(document)
 
 						out += "</table>";
 
-						$('#gatewayPanel3').append(out)
+						$('#gatewayPanel3').append(out);
 					}
 
 				});

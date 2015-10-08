@@ -1,4 +1,8 @@
 $(document).ready(function() {
+	callServer();
+});
+
+function callServer() {
 	var xmlhttp = new XMLHttpRequest();
 	var url = "../JSON/templateJSON.txt";
 
@@ -13,7 +17,8 @@ $(document).ready(function() {
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
 
-});
+};
+
 var JsonArray;
 function populateFirstTemplateTable(response) {
 	var arr = JSON.parse(response);
@@ -84,8 +89,7 @@ function EditTypeProp(id) {
 			}
 
 			out += " <input type=\"text\" class=\"form-control\" name=\"cpTypeMatchValue\" value="
-					+ arr[i].cpTypeMatchValue + ">";
-			+"</div>";
+					+ arr[i].cpTypeMatchValue + ">" + "</div>";
 
 		}
 	}
