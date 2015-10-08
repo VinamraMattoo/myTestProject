@@ -28,7 +28,8 @@ function populateSecondTemplateTable(response) {
 					+ "<td><button class=\"btn btn-primary btn-sm\" onclick=\"EditGroupProp("
 					+ arr[i].id + "," + arr[i].smsGroupVOs[j].id
 					+ ")\">Edit</td></tr>";
-	}
+
+		}
 	}
 	out += "</tbody></table>";
 	$('#SecondTemplateTable').append(out);
@@ -45,7 +46,7 @@ function EditGroupProp(tid, gid) {
 						+ "<input type=\"hidden\" name=\"id\" value="
 						+ gid
 						+ ">"
-						+ "<label style=\"font-size:120%\"><strong>select the type match type</strong></label><br/><br/><select "
+						+ "<select "
 						+ "class=\"form-control text-center\" name=\"cpTypeMatchType\">";
 
 				if (arr[i].smsGroupVOs[j].cpTypeMatchType == "ABSOLUTE_PERIOD") {
@@ -57,7 +58,7 @@ function EditGroupProp(tid, gid) {
 				}
 
 				out += "</select>"
-						+ "<label style=\"font-size:120%\"><strong>Enter the type match value</strong></label><br/><br/><input type=\"text\" class=\"form-control\" name=\"cpTypeMatchValue\" value=\""
+						+ "<input type=\"text\" class=\"form-control\" name=\"cpTypeMatchValue\" value=\""
 						+ arr[i].smsGroupVOs[j].cpTypeMatchValue
 						+ "\">"
 						+ "<select "
@@ -72,7 +73,7 @@ function EditGroupProp(tid, gid) {
 				}
 
 				out += "</select>"
-						+ "<label style=\"font-size:120%\"><strong>Enter the priority</strong></label><br/><br/><input type=\"text\" class=\"form-control\"	 name=\"priority\" value=\""
+						+ "<input type=\"text\" class=\"form-control\"	 name=\"priority\" value=\""
 						+ arr[i].smsGroupVOs[j].priority + "\">" + "</div>";
 
 			}

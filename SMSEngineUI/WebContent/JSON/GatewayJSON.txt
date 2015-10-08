@@ -1,5 +1,5 @@
 [
-{
+    {
         "id": 1,
         "name": "Appointment Scheduled",
         "desc": "sms group description goes here..",
@@ -16,6 +16,17 @@
             {
                 "id": 2,
                 "name": "SECGW",
+                "priority": "NA"
+            },
+             {
+                "id": 3,
+                "name": "THGW",
+                "priority": 3
+            },
+              
+              {
+                "id": 4,
+                "name": "FORTHGW",
                 "priority": 4
             }
         ]
@@ -32,13 +43,86 @@
             {
                 "id": 1,
                 "name": "MGAGE",
-                "priority": 2
+                "priority": "NA"
             },
             {
-                "id": 1,
+                "id": 2,
+                "name": "SECGW",
+                "priority": 2
+            },
+              {
+                "id": 3,
                 "name": "THGW",
-                "priority": 3
+                "priority": 6
+            },
+              {
+                "id": 4,
+                "name": "FORTHGW",
+                "priority": 4
+            }
+        ]
+    },
+     {
+        "id": 3,
+        "name": "Appointment Scheduled",
+        "desc": "sms group description goes here..",
+        "cpContentMatchType": "ABSOLUTE_PERIOD",
+        "cpContentMatchValue": 1313,
+        "cpTypeMatchType": "CALENDAR_DAY",
+        "cpTypeMatchValue": 2,
+        "gwPriorities":[
+            {
+                "id": 1,
+                "name": "MGAGE",
+                "priority": 1
+            },
+            {
+                "id": 2,
+                "name": "SECGW",
+                "priority": 4
+            },
+              {
+                "id": 3,
+                "name": "THGW",
+                "priority": 2
+            },
+              {
+                "id": 4,
+                "name": "FORTHGW",
+                "priority":"NA"
+            }
+        ]
+    },
+     {
+        "id": 4,
+        "name": "Payment Recieved",
+        "desc": "sms group description goes here..",
+        "cpContentMatchType": "ABSOLUTE_PERIOD",
+        "cpContentMatchValue": 2121,
+        "cpTypeMatchType": "CALENDAR_DAY",
+        "cpTypeMatchValue": 2,
+        "gwPriorities": [
+            {
+                "id": 1,
+                "name": "MGAGE",
+                "priority": "NA"
+            },
+            {
+                "id": 2,
+                "name": "SECGW",
+                "priority": 1
+            },
+              {
+                "id": 3,
+                "name": "THGW",
+                "priority": "NA"
+            },
+              {
+                "id": 4,
+                "name": "FORTHGW",
+                "priority": 2
             }
         ]
     }
+     
 ]
