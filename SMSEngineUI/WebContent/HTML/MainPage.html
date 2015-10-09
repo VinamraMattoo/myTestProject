@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SMS Management</title>
+<!-- table demo stuff -->
+
+
+<link rel="stylesheet"
+	href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.css">
+
+
+<link rel="shortcut icon" type="image/png" href="../images/newlogo.png" />
+
+
+
+
+<!-- ends here -->
+
+
+
+<link rel="stylesheet"
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+<link href="../css/sb-admin.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../css/style.css"
+	media="all" />
+<link href="../css/animate.css" rel="stylesheet">
+
+<style type="text/css">
+#updateAllSystem {
+	max-width: 600px;
+}
+
+.modal-dialog {
+	overflow-y: initial;
+}
+
+.modal-body {
+	height: 250px;
+	overflow-y: auto;
+}
+
+body {
+	overflow-x: hidden;
+}
+</style>
+
+
+
+</head>
+<body>
+
+	<nav class="navbar navbar-fixed-top" role="navigation"
+		style="background-color: #3fc1be">
+		<div class="navbar-header">
+			<noscript>
+				<div id="noscript"
+					style="position: absolute; top: 0; left: 0; background-color: red; font-size: 200%; z-index: 999; height: 100%; width: 100%; text-align: center; padding-top: 50px;">
+					You must enable Javascript in order to use this site.</div>
+			</noscript>
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-ex1-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+
+			<img src="../images/portea.png" width="200"
+				style="padding-top: 10px; margin-left: 10px;">
+
+		</div>
+
+
+
+		<div class="nav navbar-right top-nav">
+
+			<button class="navbar navbar-left btn btn-primary btn-lg"
+				data-toggle="tooltip" data-placement="down" title="Click here to show SMS charts" onclick="drawVisualization()"
+				data-toggle="modal" data-target="#myModal"
+				style="margin-top: 10px; right: 100px">
+				SMS Stats<span class="glyphicon glyphicon-stats"></span>
+			</button>
+
+
+
+			<button type="button" class="navbar navbar-left btn btn-danger"
+				title="log out from current account"
+				style="text-align: center; margin-top: 10px; right: 50px">
+				Logout&nbsp;&nbsp;<span class="glyphicon glyphicon-adjust"></span>
+			</button>
+
+		</div>
+
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul class="nav navbar-nav side-nav"
+				style="background-color: #3fc1be; top: 81px">
+				<li><a href="javascript:;" data-toggle="collapse"
+					id="SysConfig" data-target="#demo"> <strong
+						style="color: #ffffff">System Configurations <i
+							class="glyphicon glyphicon-cog gly-spin"></i></strong></a>
+					<ul id="demo" class="collapse">
+						<li><button class="btn btn-link"
+								title=" update all system configurations at once from here "
+								style="padding-right: 70px; border-left-width: 1px; padding-left: 15px; text-decoration: none; color: #ffffff"
+								data-toggle="modal" data-target="#EditSystem">Update
+								System Configurations</button></li>
+
+					</ul></li>
+
+
+				<li><a href="javascript:;" data-toggle="collapse"
+					title=" check the  gateway configurations from here "
+					id="GatewayConfig" data-target="#demo1"> <strong
+						style="color: #ffffff">Gateway Configurations <i
+							class="glyphicon glyphicon-cog gly-spin"></i></strong></a>
+					<ul id="demo1" class="collapse">
+					</ul></li>
+
+				<li><a href="javascript:;" data-toggle="collapse"
+					id="TemplateConfig" data-target="#demo2"
+					title=" update the  template  configurations from here "><strong
+						style="color: #ffffff"> Template Configurations <i
+							class="glyphicon glyphicon-cog gly-spin"></i></strong></a></li>
+
+			</ul>
+		</div>
+	</nav>
+	<div id="page-wrapper">
+		<br /> <br /> <br /> <br /> <br /> <br />
+
+		<div class="row">
+
+			<!-- code to update gateway config -->
+
+			<div id="updateGateway" style="display: none;"
+				class="col-md-8 col-md-offset-2">
+				<h1 class="text-center">
+					<strong> Update gateway data </strong>
+				</h1>
+				<br /> <br /> <br />
+				<div class="row">
+					<div class="col-md-4 col-md-offset-1">
+
+
+						<br> <br>
+						<div class="form-group">
+							<label for="name" title=" enter the  end  point for submission">URL
+								End-point for submission</label> <input class="form-control" type="url"
+								id="name" />
+						</div>
+
+						<div class="form-group">
+							<label for="inputTwitter"
+								title=" restricted chars for this gateway">Restricted
+								chars this gateway</label> <input type="text" pattern="^[A-z0-9]$"
+								maxlength="15" class="form-control" id="inputTwitter" required>
+						</div>
+					</div>
+					<div class="col-md-4 col-md-offset-1">
+						<div class="form-group">
+							<label for="app_till" title="inactivity period  start">Inactivity
+								period start</label> <input class="form-control " type="time"
+								id="app_till" />
+						</div>
+						<div class="form-group">
+							<label for="app_till">Inactivity period end</label> <input
+								class="form-control " type="time" id="app_till" />
+						</div>
+
+						<div class="form-group">
+							<label for="prodMaxCount">URL End-point for polling</label> <input
+								class="form-control" type="url" id="prodMaxCount" />
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- present system config data  -->
+
+
+			<div id="systemConfig" style="display: none;"
+				class="col-md-10 col-md-offset-1"></div>
+
+
+			<!-- present gateway config data -->
+
+			<div id="gatewayConfig"
+				style="display: none; width: 850px; height: 1000px"
+				class="col-md-6 col-md-offset-3"></div>
+
+
+			<!-- present template configurations -->
+			<div id="templateConfig"
+				style="display: none; width: 930px; margin-left: 330px;"
+				class="col-md-6 col-md-offset-3"></div>
+
+		</div>
+
+
+	</div>
+
+
+
+	<div class="modal fade" id="system2" tabindex="-1" role="dialog"
+		data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">System Config2</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<!-- <label for="name"> Gateway failure count threshold</label> -->
+						<input class="form-control" type="number" min="0" id="name"
+							placeholder="Gateway failure count threshold" />
+					</div>
+
+					<div class="form-group">
+						<label for="app_from">Max SMS length</label> <input
+							class="form-control " type="number" id="app_from" />
+					</div>
+
+					<div class="form-group">
+						<label><input type="checkbox" value="">&nbsp;&nbsp;Retry
+							same Gateway</label>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-left "
+						data-dismiss="modal">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="system3" tabindex="-1" role="dialog"
+		data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">System Config 3</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="name">SMS status wait time</label> <input
+							class="form-control" type="text" id="name" />
+					</div>
+
+					<div class="form-group">
+						<label for="app_from">New SMS loading interval</label> <input
+							class="form-control " type="time" step="any" id="app_from" />
+					</div>
+					<!-- here -->
+					<div class="form-group">
+						<label for="prodMaxCount">Next SMS Batch loading interval</label>
+						<input class="form-control" type="time" step="any"
+							id="prodMaxCount" />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-left "
+						data-dismiss="modal">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="system4" tabindex="-1" role="dialog"
+		data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div style="background-color: #3fc1be" class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Pop Up</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="name"> Status poll retry limit</label> <input
+							class="form-control" type="number" id="name" />
+					</div>
+
+					<div class="form-group">
+						<label for="app_from">Gateway status checker task interval</label>
+						<input class="form-control " type="time" id="app_from" />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-left "
+						data-dismiss="modal">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- update template popup -->
+	<div class="modal fade" id="UpdateTemplate" tabindex="-1" role="dialog"
+		data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Pop Up</h4>
+				</div>
+				<div class="modal-body">
+
+					<div class="form-group">
+						<label for="name">Retry count</label> <input class="form-control"
+							type="number" id="name" />
+					</div>
+					<div class="form-group">
+						<label for="app_till">Message expiry time</label> <input
+							class="form-control " type="text" id="app_till" />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-left "
+						data-dismiss="modal">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- modal to change priority -->
+	<div class="modal fade" id="editPriority" tabindex="-1" role="dialog"
+		data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Pop Up</h4>
+				</div>
+				<div class="modal-body">
+
+					<div id="priorityDiv" class="form-group">
+						<label for="name">Enter new priority</label> <input
+							class="form-control" type="number" id="newPriority"
+							onkeyup="validateInput()" name="value" />
+						<div id="PriorityHidden"></div>	
+							
+					</div>
+					<div id="InfoMsg" style="color: red;"></div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-left "
+						data-dismiss="modal" id="updatePriority"
+						onclick="changePriority()">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- code to update the system config -->
+	<div class="modal fade" id="EditSystem" tabindex="-1" role="dialog"
+		data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+
+			<div class="modal-content" style="height: 650px;">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h1 class="modal-title" id="myModalLabel">
+
+						<strong style="font-size: large; text-align: center;">Update
+							all system configurations</strong> <br>
+					</h1>
+				</div>
+
+
+				<div class="modal-body" style="height: 500px;">
+					<div class="panel panel-primary ">
+						<div class="panel-body" id="sampl">
+							<h1>
+								<strong id="click1"
+									title="click here to set sms load windows amd correlation id wait time"
+									class="mousechange" style="font-size: large;"></strong>
+							</h1>
+							<br>
+							<div id="update-grp-1"></div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-left "
+						id="submit_sysinfo">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- loading -->
+	<div class="container" style="text-align: center;">
+		<!-- Modal -->
+		<div class="modal fade" id="Loading" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div style="background-color: #3fc1be; height: 600px;"
+					class="modal-content">
+					<div class="modal-header" style="display: none">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Modal Header</h4>
+					</div>
+					<div class="modal-body" style="height: 500px;" id="CancelLoading">
+
+						<img src="../images/portea.png" width="200"> <br> <br>
+						<br> <br> <br> <br> <i
+							style="font-size: 200px"
+							class="glyphicon glyphicon-refresh gly-spin  fa-10x"></i> <br>
+						<br> <br> <br> <br> Loading.........
+						<h1></h1>
+						<br> <br>
+
+						<div id="cancelPopUp">
+							<h1>Connection seems to taking too long press cancel to
+								abort</h1>
+							<br>
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+
+						</div>
+
+
+
+					</div>
+					<div class="modal-footer" style="display: none"></div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+	<!-- model to change type property values -->
+	<div class="modal fade" id="editTypeProperty" tabindex="-1"
+		role="dialog" data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Edit Type Priorities</h4>
+				</div>
+				<div class="modal-body">
+
+					<div id="typeEditPop">
+						<input type="hidden" name="temp" value=temp />
+					</div>
+					<div id="InfoMsg" style="color: red;"></div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-left "
+						data-dismiss="modal" id="updateType">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 	edit group properties model -->
+	<div class="modal fade" id="editGroupProperty" tabindex="-1"
+		role="dialog" data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Edit Group
+						Priorities</h4>
+				</div>
+				<div class="modal-body">
+
+					<div id="groupEditPop"></div>
+					<div id="InfoMsg" style="color: red;"></div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-left "
+						data-dismiss="modal" id="updateGroup">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- template property edit model -->
+	<div class="modal fade" id="editTemplateProperty" tabindex="-1"
+		role="dialog" data-backdrop="static" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Edit Template
+						Priorities</h4>
+				</div>
+				<div class="modal-body">
+
+					<div id="templateEditPop"></div>
+					<div id="InfoMsg" style="color: red;"></div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary pull-left "
+						data-dismiss="modal" id="updateTemplate">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!--  footer starts  here -->
+	<!-- <footer class="web-footer">
+		<div class="container">
+						<div class="bottom-footer">
+				<div class="col-md-5">Copyright © 2015 Portea Medical</div>
+				<div class="col-md-7">
+					<ui class="footer-nav col-md-12">
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Terms and Conditions</a></li>
+					<li><a href="#">Cancellation Policy</a></li>
+					</ui>
+				</div>
+			</div>
+				<ui class="end-footer col-md-12">
+				<li><a href="#">Bangalore</a></li>
+				<li><a href="#"> Delhi</a></li>
+				<li><a href="#"> NCR</a></li>
+				<li><a href="#"> Mumbai</a></li>
+				<li><a href="#"> Chennai</a></li>
+				<li><a href="#"> Pune</a></li>
+				<li><a href="#"> Hyderabad</a></li>
+				<li><a href="#"> Kolkata </a></li>
+				<li><a href="#"> Lucknow</a></li>
+				<li><a href="#"> Coimbatore</a></li>
+				<li><a href="#"> Ahmedabad</a></li>
+				<li><a href="#"> Gurgaon</a></li>
+				<li><a href="#"> Faridabad</a></li>
+				<li><a href="#"> Ghaziabad</a></li>
+				<li><a href="#">Visakhapatnam</a></li>
+				<li><a href="#">Goa</a></li>
+				<li><a href="#">Madurai</a></li>
+				<li><a href="#">Chandigarh</a></li>
+				<li><a href="#">Jaipur</a></li>
+				<li><a href="#">Mysore</a></li>
+				<li><a href="#">Malaysia</a></li>
+				</ui>
+		
+		</div>
+	</footer> -->
+	<!-- footer ends here -->
+	<div id="bodyId" class="container"></div>
+
+
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script
+		src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.js"></script>
+	<script
+		src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/locale/bootstrap-table-en-US.min.js"></script>
+
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+	<script
+		src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript"
+		src="../js/DOMmanipulation/DivNavigation.js"></script>
+	<script type="text/javascript" src="../js/analysis/Chart.js"></script>
+
+	<script src="../js/gatewayJS/GatewayFirstTable.js"></script>
+	<script type="text/javascript"
+		src="../js/DOMmanipulation/ExternalDiv.js"></script>
+	<script src="../js/templateJS/ThirdTemplateTable.js"></script>
+	<script src="../js/templateJS/SecondTemplateTable.js"></script>
+	<script src="../js/templateJS/FirstTemplateTable.js"></script>
+	<script src="../js/SystemJS/SystemTables.js"></script>
+	<script src="../js/gatewayJS/GatewayTables.js"></script>
+	<script src="../js/SystemJS/sys_edit.js"></script>
+	<script src="../js/templateJS/firstTemplateTableJSON.js"></script>
+	<script src="../js/templateJS/secondTemplateJSON.js"></script>
+	<script src="../js/templateJS/thirdTableJSON.js"></script>
+
+</body>
+</html>

@@ -29,10 +29,10 @@ function populateFirstGatewayTable(response) {
 			+ "data-click-to-select=\"true\">"
 			+ "<thead><tr>"
 			+ "<th>Groups</th>"
-			+ "<th><button class=\"btn btn-success btn-sm\">MGAGE</button></th>"
-			+ "<th><button class=\"btn btn-success btn-sm\">SECGW</button></th>"
-			+ "<th><button class=\"btn btn-success btn-sm\">THGW</button></th>"
-			+ "<th><button class=\"btn btn-success btn-sm\">FORTHGW</button></th></thead><tbody>";
+			+ "<th><button class=\"btn btn-success btn-sm\" onclick=\"gatewayProperties(1)\">MGAGE</button></th>"
+			+ "<th><button class=\"btn btn-success btn-sm\" onclick=\"gatewayProperties(2)\">SECGW</button></th>"
+			+ "<th><button class=\"btn btn-success btn-sm\" onclick=\"gatewayProperties(3)\">THGW</button></th>"
+			+ "<th><button class=\"btn btn-success btn-sm\" onclick=\"gatewayProperties(4)\">FORTHGW</button></th></thead><tbody>";
 
 	for (var i = 0; i < arr.length; i++) {
 		out += "<tr><td>" + arr[i].name + "</td>";
@@ -143,4 +143,17 @@ function sendPriorityAJAX(i, j) {
 	$('#PriorityHidden').empty().append(out);
 
 };
-
+function gatewayProperties(gatewayId)
+{
+	var arr = Jsonarr;
+	for(var i=0;i<arr.length;i++)
+		{
+		if(gatewayId==arr[i])
+			{
+			
+			break;
+			}
+		
+		}
+	
+};
