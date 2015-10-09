@@ -7,8 +7,7 @@ $(document).ready(function() {
 
 			populateFirstGatewayTable(xmlhttp.responseText);
 
-		}
-		else
+		} else
 			alert("why?");
 	};
 	xmlhttp.open("GET", url, true);
@@ -29,10 +28,10 @@ function populateFirstGatewayTable(response) {
 			+ "data-click-to-select=\"true\">"
 			+ "<thead><tr>"
 			+ "<th>Groups</th>"
-			+ "<th><button class=\"btn btn-success btn-sm\" onclick=\"gatewayProperties(1)\">MGAGE</button></th>"
-			+ "<th><button class=\"btn btn-success btn-sm\" onclick=\"gatewayProperties(2)\">SECGW</button></th>"
-			+ "<th><button class=\"btn btn-success btn-sm\" onclick=\"gatewayProperties(3)\">THGW</button></th>"
-			+ "<th><button class=\"btn btn-success btn-sm\" onclick=\"gatewayProperties(4)\">FORTHGW</button></th></thead><tbody>";
+			+ "<th><button class=\"btn btn-success btn-sm\" onclick=\"editGatewayProperties(1)\">MGAGE</button></th>"
+			+ "<th><button class=\"btn btn-success btn-sm\" onclick=\"editGatewayProperties(2)\">SECGW</button></th>"
+			+ "<th><button class=\"btn btn-success btn-sm\" onclick=\"editGatewayProperties(3)\">THGW</button></th>"
+			+ "<th><button class=\"btn btn-success btn-sm\" onclick=\"editGatewayProperties(4)\">FORTHGW</button></th></thead><tbody>";
 
 	for (var i = 0; i < arr.length; i++) {
 		out += "<tr><td>" + arr[i].name + "</td>";
@@ -143,17 +142,42 @@ function sendPriorityAJAX(i, j) {
 	$('#PriorityHidden').empty().append(out);
 
 };
-function gatewayProperties(gatewayId)
-{
-	var arr = Jsonarr;
-	for(var i=0;i<arr.length;i++)
-		{
-		if(gatewayId==arr[i])
-			{
+function editGatewayProperties(gatewayId) {
+	var xmlhttp = new XMLHttpRequest();
+	var url = "../JSON/GatewayProperties.txt";
+
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+			populateEditGatewayProperty(xmlhttp.responseText, gatewayId);
+
+		}
+	};
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
+};
+function populateEditGatewayProperty(response, gatewayId) {
+	var arr = JSON.parse(response);
+	var out;
+
+
+	for (var i = 0; i < arr.length; i++) {
+		if (gatewayId == arr[i].id) {
+
+			out += "<input  type=\"hidden\" name=\"id\" value=\"" + arr[i].id
+					+ "\">";
+			out += "<input name=\"key1\" class=\"form-control\"" + "value="
+					+ "\"" + arr[i].key1 + "\" />";
+			out += "<input name=\"key2\" class=\"form-control\"" + "value="
+					+ "\"" + arr[i].key2 + "\" />";
+			out += "<input name=\"key3\" class=\"form-control\"" + "value="
+					+ "\"" + arr[i].key3 + "\" />";
 			
 			break;
-			}
-		
 		}
-	
+	}
+
+	$('#gatewayEditPop').empty().append(out);
+
+	$('#editGatewayProperty').modal('show');
 };
