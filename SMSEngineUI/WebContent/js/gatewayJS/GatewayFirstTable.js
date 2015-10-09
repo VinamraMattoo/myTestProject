@@ -149,19 +149,20 @@ function editGatewayProperties(gatewayId) {
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-			populateEditGatewayProperty(xmlhttp.responseText);
+			populateEditGatewayProperty(xmlhttp.responseText, gatewayId);
 
 		}
 	};
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send();
 };
-function populateEditGatewayProperty(response) {
+function populateEditGatewayProperty(response, gatewayId) {
 	var arr = JSON.parse(response);
 	var out;
 
+
 	for (var i = 0; i < arr.length; i++) {
-		if (gatewayId == arr[i]) {
+		if (gatewayId == arr[i].id) {
 
 			out += "<input  type=\"hidden\" name=\"id\" value=\"" + arr[i].id
 					+ "\">";
@@ -171,12 +172,12 @@ function populateEditGatewayProperty(response) {
 					+ "\"" + arr[i].key2 + "\" />";
 			out += "<input name=\"key3\" class=\"form-control\"" + "value="
 					+ "\"" + arr[i].key3 + "\" />";
-
-			$('#gatewayEditPop').empty().append(out);
-			$("#editGatewayProperty").show();
+			
 			break;
 		}
-
 	}
 
+	$('#gatewayEditPop').empty().append(out);
+
+	$('#editGatewayProperty').modal('show');
 };
