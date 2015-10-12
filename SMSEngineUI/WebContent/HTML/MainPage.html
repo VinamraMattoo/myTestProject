@@ -76,7 +76,8 @@ body {
 		<div class="nav navbar-right top-nav">
 
 			<button class="navbar navbar-left btn btn-primary btn-lg"
-				data-toggle="tooltip" data-placement="down" title="Click here to show SMS charts" onclick="drawVisualization()"
+				data-toggle="tooltip" data-placement="down"
+				title="Click here to show SMS charts" onclick="drawVisualization()"
 				data-toggle="modal" data-target="#myModal"
 				style="margin-top: 10px; right: 100px">
 				SMS Stats<span class="glyphicon glyphicon-stats"></span>
@@ -352,8 +353,8 @@ body {
 						<label for="name">Enter new priority</label> <input
 							class="form-control" type="number" id="newPriority"
 							onkeyup="validateInput()" name="value" />
-						<div id="PriorityHidden"></div>	
-							
+						<div id="PriorityHidden"></div>
+
 					</div>
 					<div id="InfoMsg" style="color: red;"></div>
 
@@ -531,7 +532,7 @@ body {
 			</div>
 		</div>
 	</div>
-<!-- code to modify gw prperties -->
+	<!-- code to modify gw prperties -->
 	<div class="modal fade" id="editGatewayProperty" tabindex="-1"
 		role="dialog" data-backdrop="static" aria-labelledby="myModalLabel"
 		aria-hidden="true">
@@ -598,10 +599,10 @@ body {
 	</footer> -->
 	<!-- footer ends here -->
 	<div id="bodyId" class="container"></div>
+	<div style="display: none" id="sessionId"></div>
 
 
-
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script
 		src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.js"></script>
 	<script
@@ -611,7 +612,8 @@ body {
 
 	<script
 		src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-
+	<script type="text/javascript"
+		src="../js/DOMmanipulation/SessionIdGet.js"></script>
 	<script type="text/javascript"
 		src="../js/DOMmanipulation/DivNavigation.js"></script>
 	<script type="text/javascript" src="../js/analysis/Chart.js"></script>

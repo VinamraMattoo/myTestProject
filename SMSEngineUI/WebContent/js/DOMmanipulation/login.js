@@ -12,21 +12,16 @@ $(document).ready(
 					function() {
 						var name = $('#username').val();
 						var pass = $('#psswd').val();
-						alert(pass + "," + name);
-						$.get("/SmsUi/loginServlet", {
-							password : pass,
-							username : name
-
+						$.get("/SMSTenthDraft/loginServlet", {
+							username : name,
+							password : pass
 						}, function(responseText) {
-							if (responseText != "error") {
-								window.open("MainPage.html" + "?JSESSIONID="
+							if (responseText != 403) {
+								window.open("/SMSTenthDraft/HTML/MainPage.html" + "?JSESSIONID="
 										+ (responseText), "_self");
 							} else {
-								alert("hjwgdj" + responseText);
 								$("#usernameInner").text(
-										"something went  wrong  try again ");
-
-								/* $("#sessionIdHolder").val(responseText); */
+										"Invalid username or password ");
 							}
 						});
 
