@@ -12,12 +12,13 @@ $(document).ready(
 					function() {
 						var name = $('#username').val();
 						var pass = $('#psswd').val();
-						$.get("/SMSTenthDraft/loginServlet", {
-							username : name,
-							pswd : pass
+						$.get("/SmsUi/loginServlet", {
+							psswd : pass,
+							username : name
+							
 						}, function(responseText) {
 							if (responseText != 403) {
-								window.open("/SMSTenthDraft/HTML/MainPage.html" + "?JSESSIONID="
+								window.open("/SmsUi/HTML/MainPage.html" + "?JSESSIONID="
 										+ (responseText), "_self");
 							} else {
 								$("#usernameInner").text(

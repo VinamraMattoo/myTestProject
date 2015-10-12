@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	var xmlhttp = new XMLHttpRequest();
-	var url = "../JSON/GatewayJSON.txt";
+	var url = "../JSON/GatewayJSON.txt" + "?JSESSIONID=" + ($("#sessionId").text());
 
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
