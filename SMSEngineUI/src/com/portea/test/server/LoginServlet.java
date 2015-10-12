@@ -19,17 +19,17 @@ public class LoginServlet extends HttpServlet {
 		String ID = session.getId();
 
 		String username = request.getParameter("username");
-		String pass = request.getParameter("passsword");
+		String pass = request.getParameter("pswd");
 
 		response.setContentType("text/plain");
-		//response.getWriter().write(username + pass);
-		if (username == "admin" && pass == "admin") {
-			response.setContentType("text/plain");
-			response.getWriter().write(ID);
-		} else {
-			response.setContentType("text/plain");
-			response.getWriter().write("error");
-		}
+		response.getWriter().write(username + pass);
+		/*
+		 * if (username == "admin" && pass == "admin") {
+		 * response.setContentType("text/plain");
+		 * response.getWriter().write(ID); } else {
+		 * response.setContentType("text/plain");
+		 * response.getWriter().write("error"); }
+		 */
 	}
 
 }

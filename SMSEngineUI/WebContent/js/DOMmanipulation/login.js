@@ -14,7 +14,7 @@ $(document).ready(
 						var pass = $('#psswd').val();
 						$.get("/SMSTenthDraft/loginServlet", {
 							username : name,
-							password : pass
+							pswd : pass
 						}, function(responseText) {
 							if (responseText != 403) {
 								window.open("/SMSTenthDraft/HTML/MainPage.html" + "?JSESSIONID="
