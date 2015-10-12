@@ -110,7 +110,6 @@ function GetURLParameter(sParam) {
 
 	var sPageURL = window.location.search.substring(1);
 	var sURLVariables = sPageURL.split('&');
-alert("sdhv");
 	for (var i = 0; i < sURLVariables.length; i++)
 
 	{

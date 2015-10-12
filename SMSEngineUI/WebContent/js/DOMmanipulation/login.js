@@ -12,15 +12,17 @@ $(document).ready(
 					function() {
 						var name = $('#username').val();
 						var pass = $('#psswd').val();
-						alert(pass);
+						alert(pass + "," + name);
 						$.get("/SmsUi/loginServlet", {
-							username : name,
-							password : pass
+							password : pass,
+							username : name
+
 						}, function(responseText) {
-							if (responseText != 403) {
+							if (responseText != "error") {
 								window.open("MainPage.html" + "?JSESSIONID="
 										+ (responseText), "_self");
 							} else {
+								alert("hjwgdj" + responseText);
 								$("#usernameInner").text(
 										"something went  wrong  try again ");
 
