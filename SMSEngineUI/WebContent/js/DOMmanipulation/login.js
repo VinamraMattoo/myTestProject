@@ -16,9 +16,11 @@ $(document).ready(
 							username : name,
 							pswd : pass
 						}, function(responseText) {
-							if (responseText != 403) {
-								window.open("/SMSTenthDraft/HTML/MainPage.html" + "?JSESSIONID="
-										+ (responseText), "_self");
+							if (responseText != "error") {
+								alert("Should come here");
+								window.open("/SMSTenthDraft/HTML/MainPage.html"
+										+ "?JSESSIONID=" + (responseText),
+										"_self");
 							} else {
 								$("#usernameInner").text(
 										"Invalid username or password ");
