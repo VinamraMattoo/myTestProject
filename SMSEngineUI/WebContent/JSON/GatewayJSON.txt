@@ -7,6 +7,7 @@
         "cpContentMatchValue": 1313,
         "cpTypeMatchType": "CALENDAR_DAY",
         "cpTypeMatchValue": 2,
+         "description": "Appointment Scheduled data",
         "gwPriorities": [
             {
                 "id": 1,
@@ -39,6 +40,7 @@
         "cpContentMatchValue": 2121,
         "cpTypeMatchType": "CALENDAR_DAY",
         "cpTypeMatchValue": 2,
+           "description": "Payment Recieved data",
         "gwPriorities": [
             {
                 "id": 1,
@@ -70,6 +72,7 @@
         "cpContentMatchValue": 1313,
         "cpTypeMatchType": "CALENDAR_DAY",
         "cpTypeMatchValue": 2,
+           "description": "Appointment Scheduled data",
         "gwPriorities":[
             {
                 "id": 1,
@@ -101,6 +104,7 @@
         "cpContentMatchValue": 2121,
         "cpTypeMatchType": "CALENDAR_DAY",
         "cpTypeMatchValue": 2,
+            "description": "Payment Recieved data",
         "gwPriorities": [
             {
                 "id": 1,
