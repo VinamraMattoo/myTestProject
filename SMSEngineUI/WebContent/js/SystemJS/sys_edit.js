@@ -6,6 +6,11 @@ var data = $('.sys_input_fields').map(function() {
         state: $(this).find('[name="state"]').val(),
     };
 }).get();
+$.ajax()
+
+
+
+
 alert(JSON.stringify(data));
 callme123();
 });

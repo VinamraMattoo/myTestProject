@@ -5,7 +5,7 @@ $(document).ready(function() {
 });
 function requestServer() {
 	var xmlhttp = new XMLHttpRequest();
-	var url = "../JSON/sys.txt";
+	var url = "http://localhost:8080/SmsUi/myFirstServlet?JSESSIONID="+ ($("#sessionId").text());
 
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {

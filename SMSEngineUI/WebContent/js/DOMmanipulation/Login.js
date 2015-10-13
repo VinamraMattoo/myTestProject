@@ -12,15 +12,14 @@ $(document).ready(
 					function() {
 						var name = $('#username').val();
 						var pass = $('#psswd').val();
-						$.get("/SMSTenthDraft/loginServlet", {
-							username : name,
-							pswd : pass
+						$.get("/SmsUi/loginServlet", {
+							psswd : pass,
+							username : name
+							
 						}, function(responseText) {
-							if (responseText != "error") {
-								alert("Should come here");
-								window.open("/SMSTenthDraft/HTML/MainPage.html"
-										+ "?JSESSIONID=" + (responseText),
-										"_self");
+							if (responseText != 403) {
+								window.open("/SmsUi/HTML/MainPage.html" + "?JSESSIONID="
+										+ (responseText), "_self");
 							} else {
 								$("#usernameInner").text(
 										"Invalid username or password ");
