@@ -20,7 +20,10 @@ function populateThirdTemplateTable(response) {
 			for (var k = 0; k < arr[i].smsGroupVOs[j].smsTemplateVOs.length; k++) {
 
 				out += "<tr>"
-						+ "<td><strong>"
+						+ "<td"
+						+" title=\"" +arr[i].description +"\"" 
+						+">"
+						+"<strong>"
 						+ arr[i].name
 						+ "</strong></td>"
 						+ "<td><strong>"

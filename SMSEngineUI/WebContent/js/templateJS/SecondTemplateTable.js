@@ -16,7 +16,9 @@ function populateSecondTemplateTable(response) {
 		for (var j = 0; j < arr[i].smsGroupVOs.length; j++) {
 
 			out += "<tr>"
-					+ "<td><strong>"
+					+"<td"
+					+" title=\"" +arr[i].description +"\"" 
+					+"><strong>"
 					+ arr[i].name
 					+ "</strong></td>"
 					+ "<td><strong>"

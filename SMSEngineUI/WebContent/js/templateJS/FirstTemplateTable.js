@@ -37,7 +37,9 @@ function populateFirstTemplateTable(response) {
 	for (var i = 0; i < arr.length; i++) {
 
 		out += "<tr>"
-				+ "<td><strong>"
+				+"<td"
+				+" title=\"" + arr[i].description +"\"" 
+				+"><strong>"
 				+ arr[i].name
 				+ "</strong></td><td><button class=\"btn btn-primary btn-sm\" onclick=\"EditTypeProp("
 				+ arr[i].id + ")\">Edit</td></tr>";

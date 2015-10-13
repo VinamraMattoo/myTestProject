@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	var SessionID = GetURLParameter("JSESSIONID");
 	alert(SessionID);
-	if (SessionID)
+	if (!SessionID)
 		window.open("../Index.html", "_self");
 	else
 		$("#sessionId").text(SessionID);

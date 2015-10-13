@@ -8,6 +8,7 @@
         "cpTypeMatchType": "CALENDAR_DAY",
         "cpTypeMatchValue": 2,
         "expiresIn": 15,
+        "description": "Type1 data",
         "smsGroupVOs": [
             {
                 "id": 1,
@@ -19,14 +20,17 @@
                 "cpTypeMatchValue": 4,
                 "isBulk": false,
                 "priority": 3,
+                "description": "Group1 data",
                 "smsTemplateVOs": [
                     {
+                        "description": "Template1 data",
                         "id": 1,
                         "name": "patient_lead_sms",
                         "retryCount": 2,
                         "messageExpiry": 30
                     },
                     {
+                        "description": "Template2 data",
                         "id": 2,
                         "name": "physio_lead_sms",
                         "retryCount": 2,
@@ -36,6 +40,7 @@
             },
             {
                 "id": 2,
+                "description": "Group2 data",
                 "name": "Report summary",
                 "desc": "description",
                 "cpContentMatchType": "ABSOLUTE_PERIOD",
@@ -46,12 +51,14 @@
                 "priority": 5,
                 "smsTemplateVOs": [
                     {
+                        "description": "Template1 data",
                         "id": 1,
                         "name": "home_lead_sms",
                         "retryCount": 2,
                         "messageExpiry": 88
                     },
                     {
+                        "description": "Template2 data",
                         "id": 2,
                         "name": "office_lead_sms",
                         "retryCount": 2,
@@ -70,6 +77,7 @@
         "cpTypeMatchType": "CALENDAR_DAY",
         "cpTypeMatchValue": 4,
         "expiresIn": 15,
+        "description": "Type2 data",
         "smsGroupVOs": [
             {
                 "id": 4,
@@ -81,17 +89,20 @@
                 "cpTypeMatchValue": 8,
                 "isBulk": false,
                 "priority": 1,
+                "description": "Group1 data",
                 "smsTemplateVOs": [
                     {
                         "id": 1,
                         "name": "Temp_name",
                         "retryCount": 2,
+                        "description": "Template1 data",
                         "messageExpiry": 30
                     },
                     {
                         "id": 2,
                         "name": "temp_lead_sms",
                         "retryCount": 2,
+                        "description": "Template2 data",
                         "messageExpiry": 50
                     }
                 ]
@@ -106,17 +117,20 @@
                 "cpTypeMatchValue": 12,
                 "isBulk": false,
                 "priority": 2,
+                "description": "Group2 data",
                 "smsTemplateVOs": [
                     {
                         "id": 1,
                         "name": "nursing_lead_sms",
                         "retryCount": 2,
+                        "description": "Template1 data",
                         "messageExpiry": 88
                     },
                     {
                         "id": 2,
                         "name": "WFM_lead_sms",
                         "retryCount": 2,
+                        "description": "Template2 data",
                         "messageExpiry": 70
                     }
                 ]
