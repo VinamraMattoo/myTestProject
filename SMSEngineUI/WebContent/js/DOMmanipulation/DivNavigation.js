@@ -5,13 +5,16 @@ $(document).ready(function() {
 });
 
 $('#SysConfig').click(function() {
+	location.hash = "sysconfig";
 	displayUpdate('systemConfig');
 });
 
 $('#GatewayConfig').click(function() {
+	location.hash = "gatewayconfig";
 	displayUpdate('gatewayConfig');
 });
 $('#TemplateConfig').click(function() {
+	location.hash = "templateconfig";
 	displayUpdate('templateConfig');
 	$("#templateTable2").empty();
 	$("#TemplateThirdTable").empty();
@@ -58,3 +61,23 @@ function hideOthers(CurrentId) {
 			document.getElementById(DivIdArray[i]).style.display = "none";
 	}
 }
+
+
+window.onhashchange = function() {
+    if (location.hash.length == 0) {
+      if(confirm("u want to end  your session? ")){
+    	  logoutFunction();
+    	  
+      }
+    }
+    else if(location.hash == "#sysconfig"){
+    	  displayUpdate('systemConfig');
+      }
+      else if(location.hash == "#gatewayconfig"){
+    	  displayUpdate('gatewayConfig');
+      }
+      else if(location.hash == "#templateconfig"){
+    	  displayUpdate('templateConfig');
+      }
+  };
+

@@ -19,7 +19,7 @@ $(document).ready(
 						}, function(responseText) {
 							if (responseText != 403) {
 								window.open("/SmsUi/HTML/MainPage.html" + "?JSESSIONID="
-										+ (responseText), "_self");
+										+ (responseText), "_self",true);
 							} else {
 								$("#usernameInner").text(
 										"Invalid username or password ");

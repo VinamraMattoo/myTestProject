@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	  $('[data-toggle="tooltip"]').tooltip(); 
+	 /* $('[data-toggle="tooltip"]').tooltip(); */
 	$.get("../HTML/PresentSystemData.html", function(data) {
 		$("#systemConfig").append(data);
 	});
