@@ -4,14 +4,13 @@
 <title>Login</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="shortcut icon" type="image/png" href="../images/newlogo.png" />
+<link rel="shortcut icon" type="image/png" href="images/newlogo.png" />
 <link href="css/login/login2.css" rel="stylesheet">
 
 <style type="text/css">
 body {
 	padding-top: 20px;
-	background: url(../images/hero-banner.jpg) no-repeat;
+	background: url("images/hero-banner.jpg");
 	width: 100%;
 }
 </style>
@@ -31,11 +30,17 @@ body {
 
 
 <script src="js/login/LogOutCheck.js"></script>
-<script src="js/DOMmanipulation/login.js"></script>
-
+<script src="js/DOMmanipulation/Login.js"></script>
+<!-- <script type="text/javascript">
+	window.history.forward();
+	function noBack() {
+		window.history.forward();
+	}
+</script> -->
 
 </head>
-<body>
+<body onload="noBack();" onpageshow="if (event.persisted) noBack();"
+	onunload="">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4">
@@ -75,7 +80,12 @@ body {
 
 	</div>
 	<div id="loginResponse"></div>
+
 </body>
 </html>
+
+
+
+
 
 
